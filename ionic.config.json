@@ -1,0 +1,7 @@
+{
+  "name": "DNA-frontend",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
