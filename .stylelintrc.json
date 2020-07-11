@@ -1,0 +1,11 @@
+{
+  "extends": "stylelint-config-sass-guidelines",
+  "rules": {
+    "indentation": "tab",
+    "number-leading-zero": null,
+    "selector-type-no-unknown": null,
+    "selector-no-qualifying-type": null,
+    "selector-max-id": 2,
+    "string-quotes": "double"
+  }
+}
