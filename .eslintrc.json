@@ -8,7 +8,8 @@
     "@angular-eslint/component-selector": [
       "error",
       { "type": "element", "prefix": "app", "style": "kebab-case" }
-    ]
+    ],
+    "quotes": ["error", "double"]
   },
   "overrides": [
     {
