@@ -1,0 +1,66 @@
+hr {
+	background: #eee0e0;
+}
+
+.welcome-text {
+	color: #fff;
+	font-size: 40px;
+	font-weight: 800;
+	line-height: 68px;
+}
+
+ion-button {
+	--border-radius: 9px;
+	height: 45px;
+	margin: 22px auto;
+	width: 240px;
+}
+
+.signup {
+	color: #585eed;
+}
+
+.forgot-password {
+	color: #70cdf0;
+	font-size: 12px;
+	margin-top: 38px;
+	text-align: end;
+}
+
+.no-account {
+	margin: 21px 0;
+	text-align: center;
+}
+
+.option-text {
+	span {
+		color: #eee0e0;
+		font-size: 12px;
+	}
+}
+
+form {
+	--ion-item-background: none;
+
+	ion-item {
+		--color: #fff;
+	}
+}
+
+ion-content {
+	--background: linear-gradient(180deg, #032647 30.21%, #384d61 87.72%);
+}
+
+ion-button.signin-btn {
+	--background: var(--ion-color-primary);
+	--background-hover: var(-ion-color-primary-shade);
+	--background-hover-opacity: 1;
+}
+
+ion-button.signup-btn {
+	--background: #fff;
+	--background-hover: var(-ion-color-primary-shade);
+	--background-hover-opacity: 1;
+	--color: rgb(0, 0, 0);
+	--color-hover: #cccaca;
+}
