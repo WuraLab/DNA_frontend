@@ -9,7 +9,9 @@
       "error",
       { "type": "element", "prefix": "app", "style": "kebab-case" }
     ],
-    "quotes": ["error", "double"]
+    "quotes": ["error", "double"],
+    "arrow-parens": ["error", "as-needed"],
+    "new-cap": "off"
   },
   "overrides": [
     {
