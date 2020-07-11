@@ -1,0 +1,102 @@
+<!-- <ion-header no-border>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Login</ion-title>
+  </ion-toolbar>
+</ion-header> -->
+
+<ion-content fullscreen class="ion-padding">
+  <ion-text>
+    <h1 class="welcome-text">Create <br />Account</h1>
+  </ion-text>
+
+  <form novalidate onSubmit="{login}">
+    <ion-list>
+      <!-- Name -->
+      <ion-item>
+        <ion-label position="floating">Name</ion-label>
+        <ion-input
+          name="name"
+          type="text"
+          value=""
+          [spellCheck]="false"
+          autocapitalize="off"
+          (onIonChange)="setName(e)"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p class="ion-padding-start">
+          Name is required
+        </p>
+      </ion-text>
+
+      <!-- Email Address -->
+      <ion-item>
+        <ion-label position="floating">Email Address</ion-label>
+        <ion-input
+          name="email"
+          type="email"
+          value=""
+          [spellCheck]="false"
+          autocapitalize="off"
+          (onIonChange)="setUsername(e)"
+          required
+        ></ion-input>
+      </ion-item>
+      <ion-text color="danger">
+        <p class="ion-padding-start">
+          Email Address is required
+        </p>
+      </ion-text>
+
+      <!-- Password -->
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input
+          name="password"
+          type="password"
+          [value]=""
+          [spellCheck]="false"
+          autocapitalize="off"
+          (onIonChange)="setPassword(e)"
+          required
+        >
+        </ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p class="ion-padding-start">
+          Password is required
+        </p>
+      </ion-text>
+
+      <div class="forgot-password">Forgot password</div>
+    </ion-list>
+
+    <ion-button
+      type="submit"
+      class="ion-text-capitalize signin-btn"
+      expand="block"
+      >Sign In</ion-button
+    >
+  </form>
+
+  <ion-row class="ion-justify-content-center option-text">
+    <ion-col size="3"><hr /></ion-col>
+    <ion-Col size="auto">
+      <span>Don’t have an Account?</span>
+    </ion-Col>
+    <ion-Col size="3"><hr /></ion-Col>
+  </ion-row>
+
+  <ion-button
+    type="submit"
+    class="ion-text-capitalize signup-btn"
+    expand="block"
+    >Sign Up</ion-button
+  >
+  <!-- <SignInAuth></SignInAuth> -->
+</ion-content>
