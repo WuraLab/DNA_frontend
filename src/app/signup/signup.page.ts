@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
+import { NavController } from "@ionic/angular";
 
 @Component({
   selector: "app-signup",
@@ -9,7 +10,7 @@ import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private navCtrl: NavController) {}
 
   ngOnInit() {
     // eslint-disable-next-line max-len
@@ -22,9 +23,6 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-    console.log(this.signupForm.invalid);
-    // console.log("Valid?", form.valid); // true or false
-    // console.log("email", form.value.email);
-    // console.log("password", form.value.password);
+   this.navCtrl.navigateForward("/dashboard")
   }
 }
