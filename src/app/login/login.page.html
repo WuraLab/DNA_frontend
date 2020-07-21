@@ -16,15 +16,16 @@
         ></ion-input>
       </ion-item>
 
-      <!-- validator text -->
-      <ion-text
+      <!-- validator text-->
+
+      <!-- <ion-text
         color="danger"
         *ngIf="loginForm.get('email').hasError('required') && (loginForm.get('email').dirty || loginForm.get('email').touched)"
       >
         <p class="ion-padding-start">
           Username is required
         </p>
-      </ion-text>
+      </ion-text> -->
 
       <ion-item>
         <ion-label position="floating">Password</ion-label>
@@ -39,14 +40,14 @@
       </ion-item>
 
       <!-- validator text -->
-      <ion-text
+      <!-- <ion-text
         color="danger"
         *ngIf="loginForm.get('password').hasError('required')"
       >
         <p class="ion-padding-start">
           Password is required
         </p>
-      </ion-text>
+      </ion-text> -->
 
       <div class="forgot-password">Forgot password</div>
     </ion-list>
