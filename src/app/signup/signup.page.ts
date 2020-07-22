@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { NavController } from "@ionic/angular";
+import { AuthenticationService } from "../services/authentication.service";
 
 @Component({
   selector: "app-signup",
@@ -10,7 +11,11 @@ import { NavController } from "@ionic/angular";
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
 
-  constructor(private fb: FormBuilder, private navCtrl: NavController) {}
+  constructor(
+    private fb: FormBuilder,
+    private navCtrl: NavController,
+    private authService: AuthenticationService
+  ) {}
 
   ngOnInit() {
     // eslint-disable-next-line max-len
@@ -23,6 +28,6 @@ export class SignupComponent implements OnInit {
   }
 
   onSubmit(form: FormGroup) {
-   this.navCtrl.navigateForward("/dashboard")
+    this.authService.login(form);
   }
 }

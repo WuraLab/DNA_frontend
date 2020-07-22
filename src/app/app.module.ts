@@ -8,6 +8,9 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
+import { AuthGuardService } from "./services/auth-guard.service";
+import { AuthenticationService } from "./services/authentication.service";
+import { IonicStorageModule } from "@ionic/storage";
 
 @NgModule({
   declarations: [AppComponent],
@@ -15,13 +18,16 @@ import { AppRoutingModule } from "./app-routing.module";
   imports: [
     BrowserModule,
     IonicModule.forRoot(),
-    AppRoutingModule
+    AppRoutingModule,
+    IonicStorageModule.forRoot(),
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
+    AuthGuardService,
+    AuthenticationService,
+    { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}
