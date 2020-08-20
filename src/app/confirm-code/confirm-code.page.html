@@ -1,0 +1,28 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>confirm-code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <!-- The second step where you enter the code -->
+  <div id="stage2">
+    <ion-text>
+      <h1>Check your email for a code</h1>
+    </ion-text>
+    <ion-text>
+      <h2>We’ve sent a 4-digit code to mailto@mailer.com. The code expires shortly, so please enter it soon.</h2>
+    </ion-text>
+
+    <ion-input type="" formControlName="pin" value="" autocapitalize="off" required placeholder="">
+
+      <span>Can’t find your code? Check your spam folder!</span>
+      <ion-button type="submit" class="ion-text-capitalize signin-btn" expand="block" [disabled]="resetForm.invalid">
+        Resend Link</ion-button>
+    </ion-input>
+  </div>
+</ion-content>

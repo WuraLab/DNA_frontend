@@ -7,13 +7,7 @@
     <ion-list>
       <ion-item>
         <ion-label position="floating">Email Address</ion-label>
-        <ion-input
-          formControlName="email"
-          type="text"
-          value=""
-          autocapitalize="off"
-          required
-        ></ion-input>
+        <ion-input formControlName="email" type="text" value="" autocapitalize="off" required></ion-input>
       </ion-item>
 
       <!-- validator text-->
@@ -29,13 +23,7 @@
 
       <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <ion-input
-          formControlName="password"
-          type="password"
-          [value]=""
-          autocapitalize="off"
-          required
-        >
+        <ion-input formControlName="password" type="password" [value]="" autocapitalize="off" required>
         </ion-input>
       </ion-item>
 
@@ -49,32 +37,26 @@
         </p>
       </ion-text> -->
 
-      <div class="forgot-password">Forgot password</div>
+      <div class="forgot-password" [routerLink]="['/forgot-password']">Forgot password</div>
     </ion-list>
 
-    <ion-button
-      type="submit"
-      class="ion-text-capitalize signin-btn"
-      expand="block"
-      [disabled]="loginForm.invalid"
-      >Sign In</ion-button
-    >
+    <ion-button type="submit" class="ion-text-capitalize signin-btn" expand="block" [disabled]="loginForm.invalid">Sign
+      In</ion-button>
   </form>
 
   <ion-row class="ion-justify-content-center option-text">
-    <ion-col size="3"><hr /></ion-col>
+    <ion-col size="3">
+      <hr />
+    </ion-col>
     <ion-Col size="auto">
       <span>Don’t have an Account?</span>
     </ion-Col>
-    <ion-Col size="3"><hr /></ion-Col>
+    <ion-Col size="3">
+      <hr />
+    </ion-Col>
   </ion-row>
 
-  <ion-button
-    type="submit"
-    [routerLink]="['/signup']"
-    class="ion-text-capitalize signup-btn"
-    expand="block"
-    >Sign Up</ion-button
-  >
+  <ion-button type="submit" [routerLink]="['/signup']" class="ion-text-capitalize signup-btn" expand="block">Sign Up
+  </ion-button>
   <!-- <SignInAuth></SignInAuth> -->
 </ion-content>
