@@ -1,56 +1,53 @@
-<!-- <ion-header no-border>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <ion-menu-button></ion-menu-button>
-    </ion-buttons>
-    <ion-title>Login</ion-title>
-  </ion-toolbar>
-</ion-header> -->
-
 <ion-content fullscreen class="ion-padding">
   <ion-text>
     <h1 class="welcome-text">Welcome <br />Back</h1>
   </ion-text>
 
-  <form novalidate onSubmit="{login}">
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
     <ion-list>
       <ion-item>
         <ion-label position="floating">Email Address</ion-label>
         <ion-input
-          name="email"
+          formControlName="email"
           type="text"
           value=""
-          [spellCheck]="false"
           autocapitalize="off"
-          (onIonChange)="setUsername(e)"
           required
         ></ion-input>
       </ion-item>
-      <ion-text color="danger">
+
+      <!-- validator text-->
+
+      <!-- <ion-text
+        color="danger"
+        *ngIf="loginForm.get('email').hasError('required') && (loginForm.get('email').dirty || loginForm.get('email').touched)"
+      >
         <p class="ion-padding-start">
           Username is required
         </p>
-      </ion-text>
+      </ion-text> -->
 
       <ion-item>
         <ion-label position="floating">Password</ion-label>
         <ion-input
-          name="password"
+          formControlName="password"
           type="password"
           [value]=""
-          [spellCheck]="false"
           autocapitalize="off"
-          (onIonChange)="setPassword(e)"
           required
         >
         </ion-input>
       </ion-item>
 
-      <ion-text color="danger">
+      <!-- validator text -->
+      <!-- <ion-text
+        color="danger"
+        *ngIf="loginForm.get('password').hasError('required')"
+      >
         <p class="ion-padding-start">
           Password is required
         </p>
-      </ion-text>
+      </ion-text> -->
 
       <div class="forgot-password">Forgot password</div>
     </ion-list>
@@ -59,6 +56,7 @@
       type="submit"
       class="ion-text-capitalize signin-btn"
       expand="block"
+      [disabled]="loginForm.invalid"
       >Sign In</ion-button
     >
   </form>
@@ -73,6 +71,7 @@
 
   <ion-button
     type="submit"
+    [routerLink]="['/signup']"
     class="ion-text-capitalize signup-btn"
     expand="block"
     >Sign Up</ion-button

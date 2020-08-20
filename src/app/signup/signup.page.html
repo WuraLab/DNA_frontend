@@ -12,66 +12,61 @@
     <h1 class="welcome-text">Create <br />Account</h1>
   </ion-text>
 
-  <form novalidate onSubmit="{login}">
+  <form novalidate [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)">
     <ion-list>
       <!-- Name -->
       <ion-item>
         <ion-label position="floating">Name</ion-label>
         <ion-input
-          name="name"
+          formControlName="name"
           type="text"
-          value=""
-          [spellCheck]="false"
+          [value]=""
           autocapitalize="off"
-          (onIonChange)="setName(e)"
           required
         ></ion-input>
       </ion-item>
-      <ion-text color="danger">
+      <!-- <ion-text color="danger">
         <p class="ion-padding-start">
           Name is required
         </p>
-      </ion-text>
+      </ion-text> -->
 
       <!-- Email Address -->
       <ion-item>
         <ion-label position="floating">Email Address</ion-label>
         <ion-input
-          name="email"
+          formControlName="email"
           type="email"
-          value=""
-          [spellCheck]="false"
+          [value]=""
           autocapitalize="off"
-          (onIonChange)="setUsername(e)"
           required
         ></ion-input>
       </ion-item>
-      <ion-text color="danger">
+
+      <!-- <ion-text color="danger">
         <p class="ion-padding-start">
           Email Address is required
         </p>
-      </ion-text>
+      </ion-text> -->
 
       <!-- Password -->
       <ion-item>
         <ion-label position="floating">Password</ion-label>
         <ion-input
-          name="password"
+          formControlName="password"
           type="password"
           [value]=""
-          [spellCheck]="false"
           autocapitalize="off"
-          (onIonChange)="setPassword(e)"
           required
         >
         </ion-input>
       </ion-item>
 
-      <ion-text color="danger">
+      <!-- <ion-text color="danger">
         <p class="ion-padding-start">
           Password is required
         </p>
-      </ion-text>
+      </ion-text> -->
 
       <div class="forgot-password">Forgot password</div>
     </ion-list>
@@ -80,7 +75,8 @@
       type="submit"
       class="ion-text-capitalize signin-btn"
       expand="block"
-      >Sign In</ion-button
+      [disabled]="signupForm.invalid"
+      >Sign Up</ion-button
     >
   </form>
 
@@ -94,9 +90,10 @@
 
   <ion-button
     type="submit"
+    [routerLink]="['/login']"
     class="ion-text-capitalize signup-btn"
     expand="block"
-    >Sign Up</ion-button
+    >Sign In</ion-button
   >
   <!-- <SignInAuth></SignInAuth> -->
 </ion-content>
