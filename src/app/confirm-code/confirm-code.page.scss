@@ -1,0 +1,53 @@
+ion-button.signin-btn {
+	--background: var(--ion-color-primary);
+	--background-hover: var(-ion-color-primary-shade);
+	--background-hover-opacity: 1;
+}
+
+ion-content {
+    --background: linear-gradient(180deg, #032647 30.21%, #384d61 87.72%);
+    color: white;
+}
+
+.signin-bth{
+    width: 240px;
+}
+
+ion-button {
+	--border-radius: 9px;
+	height: 45px;
+	margin: 20px auto;
+	width: 240px;
+	--background: #007FAE;
+}
+
+ion-input {
+    --background: white;
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+ion-row {
+	height: 80vh;
+}
+
+.codeForm{
+	width: 130px;
+	margin: auto;
+}
+
+.head-text{
+	width: 343px;
+    margin: 30px auto;
+    color: white;
+}
+
+.no-code{
+  margin-top: 100px;
+  color: #B4B4B4;
+}
+
+.head-text2{
+    color: #DEDEDE;
+    font-size: 25px;
+}
