@@ -32,7 +32,7 @@ const routes: Routes = [
     loadChildren: () => import("./confirm-code/confirm-code.module").then( m => m.ConfirmCodePageModule)
   },
   {
-    path: "new-password",
+    path: "reset",
     loadChildren: () => import("./new-password/new-password.module").then( m => m.NewPasswordPageModule)
   },
 
