@@ -5,49 +5,49 @@ ion-button.signin-btn {
 }
 
 ion-content {
-    --background: linear-gradient(180deg, #032647 30.21%, #384d61 87.72%);
-    color: white;
+	--background: linear-gradient(180deg, #032647 30.21%, #384d61 87.72%);
+	color: rgb(255, 255, 255);
 }
 
-.signin-bth{
-    width: 240px;
+.signin-bth {
+	width: 240px;
 }
 
 ion-button {
 	--border-radius: 9px;
+	--background: #007fae;
 	height: 45px;
 	margin: 20px auto;
 	width: 240px;
-	--background: #007FAE;
 }
 
 ion-input {
-    --background: white;
-    border-radius: 5px;
-    margin-top: 20px;
-    color: black;
+	--background: rgb(255, 255, 255);
+	border-radius: 5px;
+	color: rgb(0, 0, 0);
+	margin-top: 20px;
 }
 
 ion-row {
 	height: 80vh;
 }
 
-.codeForm{
-	width: 130px;
+.code-form {
 	margin: auto;
+	width: 130px;
 }
 
-.head-text{
-    margin: 30px auto;
-    color: white;
+.head-text {
+	color: rgb(255, 255, 255);
+	margin: 30px auto;
 }
 
-.no-code{
-  margin-top: 100px;
-  color: #B4B4B4;
+.no-code {
+	color: #b4b4b4;
+	margin-top: 100px;
 }
 
-.head-text2{
-    color: #DEDEDE;
-    font-size: 25px;
+.head-text2 {
+	color: #dedede;
+	font-size: 25px;
 }
