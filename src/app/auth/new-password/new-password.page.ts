@@ -1,7 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { NavController } from "@ionic/angular";
-import { AuthenticationService } from "../services/authentication.service";
 
 @Component({
   selector: "app-new-password",
@@ -14,9 +13,9 @@ export class NewPasswordComponent implements OnInit {
   constructor(
     private fb: FormBuilder,
     private navCtrl: NavController,
-    private authService: AuthenticationService
   ) {}
 
+  
   ngOnInit() {
     this.passwordForm = this.fb.group({
       email: ["mailto@mail.com"],

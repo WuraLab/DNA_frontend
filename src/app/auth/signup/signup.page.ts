@@ -1,7 +1,8 @@
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { NavController } from "@ionic/angular";
-import { AuthenticationService } from "../services/authentication.service";
+import { AuthenticationService } from "../authentication.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-signup",
@@ -10,11 +11,13 @@ import { AuthenticationService } from "../services/authentication.service";
 })
 export class SignupComponent implements OnInit {
   signupForm: FormGroup;
+  errors: any = [];
 
   constructor(
     private fb: FormBuilder,
     private navCtrl: NavController,
-    private authService: AuthenticationService
+    private auth: AuthenticationService,
+    private router: Router
   ) {}
 
   ngOnInit() {
@@ -27,7 +30,16 @@ export class SignupComponent implements OnInit {
     });
   }
 
-  onSubmit(form: FormGroup) {
-    this.authService.login(form);
+  signup(): void {
+    this.errors = [];
+    this.auth.signup(this.signupForm.value)
+      .subscribe(data => {
+        console.log(data)
+        this.router.navigate(["/login"], { queryParams: { registered: "success" } });
+       },
+        errorResponse => {
+          this.errors.push(errorResponse.error.username);
+          console.log(this.errors)
+        });
   }
 }

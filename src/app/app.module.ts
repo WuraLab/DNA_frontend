@@ -8,9 +8,10 @@ import { StatusBar } from "@ionic-native/status-bar/ngx";
 
 import { AppComponent } from "./app.component";
 import { AppRoutingModule } from "./app-routing.module";
-import { AuthGuardService } from "./services/auth-guard.service";
-import { AuthenticationService } from "./services/authentication.service";
+import { AuthGuardService } from "./auth/auth-guard.service";
+import { AuthenticationService } from "./auth/authentication.service";
 import { IonicStorageModule } from "@ionic/storage";
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [AppComponent],
@@ -20,6 +21,7 @@ import { IonicStorageModule } from "@ionic/storage";
     IonicModule.forRoot(),
     AppRoutingModule,
     IonicStorageModule.forRoot(),
+    HttpClientModule
   ],
   providers: [
     StatusBar,
