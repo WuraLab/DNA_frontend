@@ -11,6 +11,20 @@ export class DashboardComponent implements OnInit {
   authState;
   userInfo;
 
+  records = [
+    { type: "Due Loans", value: 10 },
+    { type: "Cleared Loans", value: 5 },
+    { type: "Loans Collected", value: 28 },
+    { type: "Loans Given", value: 23 },
+  ];
+
+  services = [
+    { type: "Alert", icon: "notifications" },
+    { type: "Payments", icon: "wallet" },
+    { type: "Coming Soon", icon: "hourglass" },
+    { type: "Coming Soon", icon: "hourglass" },
+  ];
+
   constructor(
     private authService: AuthenticationService,
     private storage: Storage
