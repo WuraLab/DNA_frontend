@@ -32,7 +32,7 @@ export class AuthenticationService {
   }
 
   isLoggedIn() {
-    this.storage.get("USER_INFO").then((response) => {
+    this.storage.get("USER_INFO").then(response => {
       if (response) {
         this.authState.next(true);
       }
