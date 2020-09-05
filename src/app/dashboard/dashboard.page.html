@@ -4,10 +4,13 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  Welcome
+<ion-content class="ion-padding">
+  Welcome, Auth state: {{authState}}
 
-  Auth state: {{authState}}
+  <h2>{{userInfo?.message}}</h2>
+  <div>
+    {{userInfo?.result.user.username}}
+  </div>
 
   <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
     Logout
