@@ -1,0 +1,36 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>confirm-code</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <!-- The second step where you enter the code -->
+  <div id="stage-2">
+    <ion-row class="ion-align-items-center ion-justify-content-end">
+      <ion-col>
+        <ion-text class="ion-text-center">
+          <h1 class="head-text">Check your email for a code</h1>
+        </ion-text>
+        <ion-text class="ion-text-center">
+          <h2 class="head-text2">We’ve sent a 6-digit code to mailto@mailer.com. The code expires shortly, so please
+            enter it soon.</h2>
+        </ion-text>
+
+        <form [formGroup]="codeForm" class="code-form">
+          <ion-input ionChange="" type="number" formControlName="code" value="" autocapitalize="off" required placeholder="6-digit code">
+          </ion-input>
+        </form>
+
+        <div imargin>
+          <p class="ion-text-center no-code">Can’t find your code? Check your spam folder!</p>
+          <ion-button type="submit" class="ion-text-capitalize signin-btn" expand="block" [disabled]="codeForm.invalid">
+            Resend Link</ion-button>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

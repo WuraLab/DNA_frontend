@@ -27,13 +27,13 @@ export class AppComponent implements OnInit {
       this.statusBar.styleDefault();
       this.splashScreen.hide();
 
-      this.authenticationService.authState.subscribe(state => {
-        if (state) {
-          this.router.navigate(["dashboard"]);
-        } else {
-          this.router.navigate(["login"]);
-        }
-      });
+      // this.authenticationService.authState.subscribe(state => {
+      //   if (state) {
+      //     this.router.navigate(["dashboard"]);
+      //   } else {
+      //     this.router.navigate(["login"]);
+      //   }
+      // });
     });
   }
 

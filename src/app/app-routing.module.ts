@@ -14,6 +14,10 @@ const routes: Routes = [
       import("./login/login.module").then(m => m.LoginPageModule),
   },
   {
+    path: "forgot-password",
+    loadChildren: () => import("./forgot-password/forgot-password.module").then( m => m.ForgotPasswordPageModule)
+  },
+  {
     path: "signup",
     loadChildren: () =>
       import("./signup/signup.module").then(m => m.SignupPageModule),
@@ -23,7 +27,15 @@ const routes: Routes = [
     loadChildren: () =>
       import("./dashboard/dashboard.module").then(m => m.DashboardPageModule),
     canActivate: [AuthGuardService],
+  },   {
+    path: "confirm-code",
+    loadChildren: () => import("./confirm-code/confirm-code.module").then( m => m.ConfirmCodePageModule)
   },
+  {
+    path: "reset",
+    loadChildren: () => import("./new-password/new-password.module").then( m => m.NewPasswordPageModule)
+  },
+
 ];
 
 @NgModule({
