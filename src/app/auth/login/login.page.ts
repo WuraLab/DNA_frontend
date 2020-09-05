@@ -1,3 +1,4 @@
+import { Storage } from "@ionic/storage";
 import { Component, OnInit } from "@angular/core";
 import {
   FormGroup,
@@ -16,11 +17,12 @@ import { ActivatedRoute, Router } from "@angular/router";
 })
 export class LoginComponent implements OnInit {
   loginForm: FormGroup;
-  errors: any = [];
+  errors: String;
   notify: string;
 
   constructor(
     private fb: FormBuilder,
+    private storage: Storage,
     private navCtrl: NavController,
     private auth: AuthenticationService,
     private route: ActivatedRoute,
@@ -50,16 +52,28 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.errors = [];
+    this.errors = "";
+    this.auth.authState.subscribe((state) => console.log(state));
+
     this.auth.login(this.loginForm.value).subscribe(
       (token) => {
-        this.router.navigate(["/dashboard"], {
-          queryParams: { loggedin: "success" },
+        console.log(token);
+
+        // gets the user using the returned token
+        this.auth.getUser(token).subscribe((data) => {
+          console.log(data);
+          this.storage.set("USER_INFO", data);
+          this.auth.authState.next(true);
+          this.router.navigate(["/dashboard"], {
+            queryParams: { loggedin: "success" },
+          });
         });
       },
       (errorResponse) => {
         console.log(errorResponse);
-        this.errors.push(errorResponse.error);
+        if (errorResponse.status === 400) {
+          this.errors = "Username or password is incorrect";
+        } else this.errors = errorResponse.message;
       }
     );
   }

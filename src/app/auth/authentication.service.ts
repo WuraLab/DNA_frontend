@@ -3,7 +3,7 @@ import { Router } from "@angular/router";
 import { Storage } from "@ionic/storage";
 import { ToastController, Platform } from "@ionic/angular";
 import { BehaviorSubject, Observable } from "rxjs";
-import { HttpClient } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { map } from "rxjs/operators";
 import { JwtHelperService } from "@auth0/angular-jwt";
 
@@ -11,8 +11,13 @@ const jwt = new JwtHelperService();
 
 @Injectable()
 export class AuthenticationService {
-  authState = new BehaviorSubject(false);
+  headers = new HttpHeaders()
+    .set("content-type", "application/json")
+    .set("Access-Control-Allow-Origin", "*");
+
+  public authState = new BehaviorSubject(false);
   private decodedToken: any;
+  private baseRoute = "https://dnappserver.herokuapp.com/api/v1/";
 
   constructor(
     private router: Router,
@@ -41,10 +46,7 @@ export class AuthenticationService {
       email: userData.email,
       first_name: userData.name,
     };
-    return this.http.post(
-      "https://dnappserver.herokuapp.com/api/v1/user/",
-      formatedData
-    );
+    return this.http.post(`${this.baseRoute}user/`, formatedData);
   }
 
   public login(userData: any): Observable<any> {
@@ -53,23 +55,31 @@ export class AuthenticationService {
       password: userData.password,
     };
 
-    return this.http
-      .post("https://dnappserver.herokuapp.com/api/v1/login/", formatedData)
-      .pipe(
-        map((res: any) => {
-          let token = res.token
-          console.log(token);
-          return this.saveToken(token);
-        })
-      );
+    return this.http.post(`${this.baseRoute}login/`, formatedData).pipe(
+      map((res: any) => {
+        let token = res.token;
+        console.log(token);
+        return token
+      })
+    );
   }
 
-  private saveToken(token: any): any {
-    this.decodedToken = jwt.decodeToken(token);
-    localStorage.setItem("auth_token", token);
-    localStorage.setItem("auth_meta", JSON.stringify(this.decodedToken));
-    return token;
+  public getUser(id: any): Observable<any> {
+    console.log(id);
+    let isd = "692f483624ccea4e4474a26f3081c273f43884ca";
+    return this.http.get(`${this.baseRoute}profile/`, {
+      headers: {
+        Authorization: `token ${isd}`,
+      },
+    });
   }
+
+  // private saveToken(token: any): any {
+  //   this.decodedToken = jwt.decodeToken(token);
+  //   localStorage.setItem("auth_token", token);
+  //   localStorage.setItem("auth_meta", JSON.stringify(this.decodedToken));
+  //   return token;
+  // }
 
   logout() {
     this.storage.remove("USER_INFO").then(() => {

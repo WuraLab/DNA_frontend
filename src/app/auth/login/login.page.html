@@ -8,8 +8,8 @@
       <div *ngIf="notify" class="alert alert-success">
         <h4>{{ notify }}</h4>
       </div>
-      <div *ngIf="errors.length > 0" class="alert alert-danger">
-        <h4 *ngFor="let error of errors">{{ error }}</h4>
+      <div *ngIf="errors" class="alert alert-danger">
+        <h4>{{ errors }}</h4>
       </div>
 
       <ion-item>
