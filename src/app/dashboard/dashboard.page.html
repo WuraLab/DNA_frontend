@@ -30,9 +30,14 @@
         <ion-icon name="apps-outline" slot="end"></ion-icon>
       </ion-item>
       <div class="ion-padding" class="scroll-container record-scroll">
-        <div class="create">
+        <ion-item
+          class="create"
+          button
+          [routerLink]="['create']"
+          routerLinkActive="router-link-active"
+        >
           <ion-icon name="add"></ion-icon>
-        </div>
+        </ion-item>
 
         <ion-card *ngFor="let record of categories" class="scroll-card card-1">
           <ion-card-content>

@@ -1,3 +1,4 @@
+import { NavController } from "@ionic/angular";
 import { Component, Input, OnInit } from "@angular/core";
 
 interface transaction {
@@ -19,7 +20,7 @@ export class ScrollbarComponent implements OnInit {
   transLoading: boolean;
   @Input() recentTrans: any;
 
-  constructor() {
+  constructor(private nav: NavController) {
     this.transLoading = true;
   }
 
@@ -27,5 +28,9 @@ export class ScrollbarComponent implements OnInit {
     if (this.recentTrans) {
       this.transLoading = false;
     }
+  }
+
+  navToCreate() {
+    this.nav.navigateForward("/create");
   }
 }

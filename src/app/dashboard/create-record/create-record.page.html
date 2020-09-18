@@ -1,0 +1,93 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+    <ion-title>Create Record</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <ion-list>
+    <ion-list-header>
+      <h2 class="head-text">Loan Info</h2>
+    </ion-list-header>
+  </ion-list>
+
+  <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    <ion-item class="ion-margin-bottom">
+      <ion-label position="floating">Name</ion-label>
+      <ion-input required formControlName="name" type="text"></ion-input>
+    </ion-item>
+
+    <ion-row class="ion-margin-bottom">
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="floating">Loan Amount</ion-label>
+          <ion-input
+            required
+            formControlName="category"
+            type="text"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="floating">Interest Rate</ion-label>
+          <ion-input
+            required
+            formControlName="category"
+            type="text"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-item class="ion-margin-bottom">
+      <ion-label position="floating">Loan Category</ion-label>
+      <ion-input required formControlName="category" type="text"></ion-input>
+    </ion-item>
+
+    <ion-row class="ion-margin-bottom">
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="floating">Start Date</ion-label>
+          <ion-input
+            required
+            formControlName="category"
+            type="text"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col size="6">
+        <ion-item>
+          <ion-label position="floating">Due Date</ion-label>
+          <ion-input
+            required
+            formControlName="category"
+            type="text"
+          ></ion-input>
+        </ion-item>
+      </ion-col>
+    </ion-row>
+
+    <ion-item class="ion-margin-bottom">
+      <ion-label position="floating">Description (Optional)</ion-label>
+      <ion-input required formControlName="category" type="text"></ion-input>
+    </ion-item>
+
+    <ion-row class="ion-justify-content-center">
+      <ion-col size="auto">
+        <ion-button
+          block
+          color="primary"
+          type="submit"
+          class="form-btn"
+          [disabled]="loginForm.invalid"
+        >
+          Next
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </form>
+</ion-content>
