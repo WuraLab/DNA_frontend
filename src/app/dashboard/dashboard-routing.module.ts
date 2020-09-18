@@ -8,10 +8,6 @@ const routes: Routes = [
     path: "",
     component: DashboardComponent,
   },
-  {
-    path: "create",
-    loadChildren: () => import("./create-record/create-record.module").then( m => m.CreateRecordPageModule)
-  },
 ];
 
 @NgModule({

@@ -35,6 +35,10 @@ const routes: Routes = [
     path: "reset",
     loadChildren: () => import("./auth/new-password/new-password.module").then( m => m.NewPasswordPageModule)
   },
+  {
+    path: "create",
+    loadChildren: () => import("./create-record/create-record.module").then( m => m.CreateRecordPageModule)
+  },
 ];
 
 @NgModule({
