@@ -58,7 +58,6 @@ export class AuthenticationService {
     return this.http.post(`${this.baseRoute}login/`, formatedData).pipe(
       map((res: any) => {
         let token = res.token;
-        console.log(token);
         return token
       })
     );

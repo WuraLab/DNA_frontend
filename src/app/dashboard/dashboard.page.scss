@@ -1,99 +1,108 @@
 ion-content {
-    --background: #1f3d5a;
-    --ion-item-background: transparent;
+  --background: #1f3d5a;
+  --ion-item-background: transparent;
+}
+
+ion-item.welcome-item {
+  --background: #03101e;
+  --border-radius: 5px;
+  --inner-box-shadow: 4px 4px;
+  --min-height: 24px;
+  --ripple-color: #1e1e1e;
+  --transition: background-color 15ms linear;
+
+  h2 {
+    color: #ffffff;
   }
-  
-  ion-item.welcome-item {
-    --background: #03101e;
-    --border-radius: 5px;
-    --inner-box-shadow: 4px 4px;
-    --min-height: 24px;
-    --ripple-color: #1e1e1e;
-    --transition: background-color 15ms linear;
-  
-    h2 {
-      color: #ffffff;
-    }
-  
-    h4 {
-      color: #c2cfe0;
-    }
+
+  h4 {
+    color: #c2cfe0;
   }
-  
-  .scroll-container {
+}
+
+.scroll-container {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+}
+
+.scroll-card {
+  flex: 0 0 auto;
+  text-align: center;
+}
+
+.card-2 {
+  height: 70px;
+  width: 70px;
+  background: #f1f3f6;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-1 {
+  height: 140px;
+  width: 120px;
+  background: #f1f3f6;
+  border-radius: 12px;
+}
+
+.record-scroll {
+  .circle {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: white;
+    margin: 12px auto;
     display: flex;
-    flex-wrap: nowrap;
-    overflow-x: auto;
+    justify-content: center;
+    align-items: center;
+    justify-self: center;
+    border: 2px solid rgba(58, 66, 118, 0.2);
+    span {
+      color: #403dc5;
+      font-size: 18;
+    }
+
+    p {
+      color: #3a4276;
+      font-size: 16;
+      text-align: center;
+    }
   }
-  
-  .scroll-card {
+
+  .create {
+    width: 52px;
     flex: 0 0 auto;
-    text-align: center;
-  }
-  
-  .card-2 {
-    height: 70px;
-    width: 70px;
-    background: #f1f3f6;
-    border-radius: 12px;
+    height: 52px;
+    margin-right: 16px;
+    border-radius: 50%;
+    background-color: #007fae;
+    align-self: center;
     display: flex;
     align-items: center;
     justify-content: center;
   }
-  
-  .card-1 {
-    height: 140px;
-    width: 120px;
-    background: #f1f3f6;
-    border-radius: 12px;
+}
+
+.service-scroll {
+  .name {
+    color: #c2cfe0;
+    width: 85px;
   }
-  
-  .record-scroll {
-    .circle {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      background: white;
-      margin: 12px auto;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      justify-self: center;
-      border: 2px solid rgba(58, 66, 118, 0.2);
-      span {
-        color: #403dc5;
-        font-size: 18;
-      }
-  
-      p {
-        color: #3a4276;
-        font-size: 16;
-        text-align: center;
-      }
-    }
-  
-    .create {
-      width: 52px;
-      flex: 0 0 auto;
-      height: 52px;
-      margin-right: 16px;
-      border-radius: 50%;
-      background-color: #007fae;
-      align-self: center;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+  ion-icon {
+    color: #3a4276;
+    font-size: 24px;
   }
-  
-  .service-scroll {
-    .name {
-      color: #c2cfe0;
-      width: 85px;
-    }
-    ion-icon {
-      color: #3a4276;
-      font-size: 24px;
-    }
-  }
-  
+}
+
+.scrollbar-cont {
+  position: absolute;
+  width: 100%;
+  margin: -16px;
+}
+
+.cat-title {
+  color: white;
+}

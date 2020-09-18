@@ -7,7 +7,9 @@
 <ion-content class="ion-padding">
   <ion-item class="welcome-item" lines="none">
     <ion-avatar slot="start">
-      <img [src]="image" />
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/European_shorthair_procumbent_Quincy.jpg/1200px-European_shorthair_procumbent_Quincy.jpg"
+      />
     </ion-avatar>
 
     <ion-icon name="close" slot="end"></ion-icon>
@@ -22,7 +24,9 @@
     <!-- record Overview -->
     <div class="ion-margin-bottom">
       <ion-item lines="none">
-        <ion-label>Loan record view</ion-label>
+        <ion-label class="cat-title">
+          <h2>Loan record view</h2>
+        </ion-label>
         <ion-icon name="apps-outline" slot="end"></ion-icon>
       </ion-item>
       <div class="ion-padding" class="scroll-container record-scroll">
@@ -30,7 +34,7 @@
           <ion-icon name="add"></ion-icon>
         </div>
 
-        <ion-card *ngFor="let record of records" class="scroll-card card-1">
+        <ion-card *ngFor="let record of categories" class="scroll-card card-1">
           <ion-card-content>
             <div class="circle">
               <span>{{record.value}}</span>
@@ -44,7 +48,9 @@
     <!-- services -->
     <div class="ion-margin-bottom">
       <ion-item lines="none">
-        <ion-label>Services</ion-label>
+        <ion-label class="cat-title">
+          <h2>Services</h2>
+        </ion-label>
         <ion-icon name="apps-outline" slot="end"></ion-icon>
       </ion-item>
       <div class="ion-padding" class="scroll-container service-scroll">
@@ -59,6 +65,15 @@
       </div>
     </div>
   </ion-list>
+
+  <app-scrollbar
+    class="scrollbar-cont"
+    [recentTrans]="this.records"
+  ></app-scrollbar>
+
+  <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
+    Logout
+  </ion-button>
 
   <!-- Welcome, Auth state: {{authState}}
 

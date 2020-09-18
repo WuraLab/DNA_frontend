@@ -1,0 +1,45 @@
+<div class="information">
+  <div class="pullbar"></div>
+  <div class="areaDiv">
+    <ion-list>
+      <ion-list-header>
+        <ion-label>
+          <h2>Recent Transactions</h2>
+        </ion-label>
+        <ion-button>See All</ion-button>
+      </ion-list-header>
+
+      <div *ngIf="transLoading; else loading">
+        <div *ngIf="recentTrans > 0; else noTrans">
+          <ion-item button *ngFor="let tran of recentTrans" lines="none">
+            <ion-avatar slot="start">
+              <img [src]="avatar" />
+            </ion-avatar>
+            <ion-label>
+              <h2>Gbolahan</h2>
+              <h4>
+                Just Now
+                <span><ion-icon slot="start" name="add"></ion-icon></span>
+              </h4>
+            </ion-label>
+
+            <ion-label slot="end">N3,200.00</ion-label>
+          </ion-item>
+        </div>
+
+        <ng-template #noTrans>
+          <div class="no-trans">
+            <h1>You do not currently have any loan record</h1>
+            <ion-button expand="block" fill="clear" shape="round">
+              Start by adding some records
+            </ion-button>
+          </div>
+        </ng-template>
+      </div>
+
+      <ng-template #loading>
+        <ion-spinner name="bubbles"></ion-spinner>
+      </ng-template>
+    </ion-list>
+  </div>
+</div>

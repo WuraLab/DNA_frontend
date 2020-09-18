@@ -1,3 +1,4 @@
+import { RecordService } from "./../services/record.service";
 import { Storage } from "@ionic/storage";
 import { Component, OnInit } from "@angular/core";
 import { AuthenticationService } from "../auth/authentication.service";
@@ -10,8 +11,9 @@ import { AuthenticationService } from "../auth/authentication.service";
 export class DashboardComponent implements OnInit {
   authState;
   userInfo;
+  records;
 
-  records = [
+  categories = [
     { type: "Due Loans", value: 10 },
     { type: "Cleared Loans", value: 5 },
     { type: "Loans Collected", value: 28 },
@@ -27,15 +29,20 @@ export class DashboardComponent implements OnInit {
 
   constructor(
     private authService: AuthenticationService,
-    private storage: Storage
+    private storage: Storage,
+    private recordService: RecordService
   ) {}
 
   ngOnInit() {
     this.authState = this.authService.isAuthenticated();
     if (this.authState) {
       // this.storage.keys().then((info) => (this.userInfo = info));
-      this.storage.get("USER_INFO").then(info => {
+      this.storage.get("USER_INFO").then((info) => {
         this.userInfo = info;
+        let sessionToken = this.userInfo.sessionToken;
+        this.recordService
+          .getLoans(sessionToken)
+          .subscribe((records) => (this.records = records));
       });
     }
   }
