@@ -35,11 +35,6 @@ const routes: Routes = [
     path: "reset",
     loadChildren: () => import("./auth/new-password/new-password.module").then( m => m.NewPasswordPageModule)
   },
-  {
-    path: 'add-loan',
-    loadChildren: () => import('./add-loan/add-loan.module').then( m => m.AddLoanPageModule)
-  },
-
 ];
 
 @NgModule({
