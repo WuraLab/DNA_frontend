@@ -32,7 +32,7 @@ export class AuthenticationService {
   }
 
   isLoggedIn() {
-    this.storage.get("USER_INFO").then(response => {
+    this.storage.get("USER_INFO").then((response) => {
       if (response) {
         this.authState.next(true);
       }
@@ -58,7 +58,7 @@ export class AuthenticationService {
     return this.http.post(`${this.baseRoute}login/`, formatedData).pipe(
       map((res: any) => {
         let token = res.token;
-        return token
+        return token;
       })
     );
   }
@@ -89,5 +89,13 @@ export class AuthenticationService {
 
   isAuthenticated() {
     return this.authState.value;
+  }
+
+  passwordRecovery(email) {
+    return this.http.post(`${this.baseRoute}recovery/`, email);
+  }
+
+  validateToken(token) {
+    return this.http.post(`${this.baseRoute}recovery/`, token)
   }
 }

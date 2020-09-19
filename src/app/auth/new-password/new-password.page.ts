@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
 import { NavController } from "@ionic/angular";
@@ -12,7 +13,7 @@ export class NewPasswordComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
-    private navCtrl: NavController,
+    private route: Router,
   ) {}
 
   
@@ -24,5 +25,7 @@ export class NewPasswordComponent implements OnInit {
     });
   }
 
-  confirmPassword() {}
+  confirmPassword() {
+    this.route.navigate(["/login"])
+  }
 }
