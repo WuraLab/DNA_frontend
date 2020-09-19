@@ -18,6 +18,10 @@
       <h2>Welcome Back</h2>
       <h4>{{userInfo?.result.user.username}}</h4>
     </ion-label>
+
+    <ion-button (click)="logout()" expand="block" fill="block" shape="round">
+      Logout
+    </ion-button>
   </ion-item>
 
   <ion-list class="ion-margin-top">
@@ -75,10 +79,6 @@
     class="scrollbar-cont"
     [recentTrans]="this.records"
   ></app-scrollbar>
-
-  <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
-    Logout
-  </ion-button>
 
   <!-- Welcome, Auth state: {{authState}}
 
