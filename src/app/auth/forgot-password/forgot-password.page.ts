@@ -16,12 +16,16 @@ import { Router } from "@angular/router";
 })
 export class ForgotPasswordComponent implements OnInit {
   resetForm: FormGroup;
+  isFetching: boolean;
+  errorMessage: string;
 
   constructor(
     private fb: FormBuilder,
     private authService: AuthenticationService,
     private router: Router
-  ) {}
+  ) {
+    this.isFetching = false;
+  }
 
   ngOnInit() {
     // eslint-disable-next-line max-len
@@ -32,11 +36,29 @@ export class ForgotPasswordComponent implements OnInit {
   }
 
   sendMail() {
-    this.authService
-      .passwordRecovery(this.resetForm.value)
-      .subscribe((res: any) => {
-        this.router.navigate(["/confirm-code"]);
+    this.isFetching = true;
+    this.errorMessage = "";
+
+    this.authService.passwordRecovery(this.resetForm.value).subscribe(
+      (res: any) => {
+        this.router.navigate(["/confirm-code"], {
+          queryParams: { email: this.resetForm.value.email },
+        });
         console.log(res);
-      });
+      },
+      (err) => {
+        console.log(err);
+        if (err.status === 0) {
+          this.errorMessage =
+            "Please check your internet connection and try again!";
+        } else if (err.status === 400) {
+          this.errorMessage = err.error.message;
+        } else {
+          this.errorMessage =
+            "An error occoured while resetting your password please try again later";
+        }
+        this.isFetching = false;
+      }
+    );
   }
 }

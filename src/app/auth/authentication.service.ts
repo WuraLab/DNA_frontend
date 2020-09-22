@@ -64,7 +64,6 @@ export class AuthenticationService {
   }
 
   public getUser(id: any): Observable<any> {
-    console.log(id);
     return this.http.get(`${this.baseRoute}profile/`, {
       headers: {
         Authorization: `token ${id}`,
@@ -95,6 +94,6 @@ export class AuthenticationService {
   }
 
   validateToken(token) {
-    return this.http.post(`${this.baseRoute}recovery/`, token)
+    return this.http.post(`${this.baseRoute}recovery/`, token);
   }
 }
