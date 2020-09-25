@@ -61,7 +61,6 @@ export class LoginComponent implements OnInit {
 
         // gets the user using the returned token
         this.auth.getUser(token).subscribe(data => {
-          data.sessionToken = token;
           console.log(data);
           this.storage.set("USER_INFO", data);
           this.auth.authState.next(true);
