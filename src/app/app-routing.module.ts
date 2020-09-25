@@ -37,7 +37,7 @@ const routes: Routes = [
   },
   {
     path: "create",
-    loadChildren: () => import("./create-record/create-record.module").then( m => m.CreateRecordPageModule)
+    loadChildren: () => import("./create-record/create-record.module").then( m => m.CreateRecordComponentModule)
   },
 ];
 
