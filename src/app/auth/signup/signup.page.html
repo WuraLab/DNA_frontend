@@ -15,7 +15,7 @@
   <form novalidate [formGroup]="signupForm" (ngSubmit)="signup()">
     <ion-list>
       <div *ngIf="errors.length > 0">
-        <div class="httpError" *ngFor="let error of errors">
+        <div class="http-error" *ngFor="let error of errors">
           <h4>{{ error }}</h4>
         </div>
       </div>
