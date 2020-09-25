@@ -15,7 +15,7 @@
   <form novalidate [formGroup]="signupForm" (ngSubmit)="signup()">
     <ion-list>
       <div *ngIf="errors.length > 0">
-        <div class="httpError" *ngFor="let error of errors">
+        <div class="http-error" *ngFor="let error of errors">
           <h4>{{ error }}</h4>
         </div>
       </div>
@@ -95,7 +95,6 @@
   </ion-row>
 
   <ion-button
-    type="submit"
     [routerLink]="['/login']"
     class="ion-text-capitalize signup-btn"
     expand="block"

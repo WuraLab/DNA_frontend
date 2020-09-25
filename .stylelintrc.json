@@ -6,6 +6,7 @@
     "selector-type-no-unknown": null,
     "selector-no-qualifying-type": null,
     "selector-max-id": 2,
-    "string-quotes": "double"
+    "string-quotes": "double",
+    "max-nesting-depth": null
   }
 }

@@ -58,7 +58,6 @@ export class AuthenticationService {
     return this.http.post(`${this.baseRoute}login/`, formatedData).pipe(
       map((res: any) => {
         let token = res.token;
-        console.log(token);
         return token
       })
     );
@@ -66,10 +65,9 @@ export class AuthenticationService {
 
   public getUser(id: any): Observable<any> {
     console.log(id);
-    let isd = "692f483624ccea4e4474a26f3081c273f43884ca";
     return this.http.get(`${this.baseRoute}profile/`, {
       headers: {
-        Authorization: `token ${isd}`,
+        Authorization: `token ${id}`,
       },
     });
   }

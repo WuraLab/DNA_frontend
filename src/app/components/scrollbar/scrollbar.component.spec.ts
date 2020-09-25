@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { IonicModule } from "@ionic/angular";
 
-import { DashboardComponent } from "./dashboard.page";
+import { ScrollbarComponent } from "./scrollbar.component";
 
-describe("DashboardComponent", () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe("ScrollbarComponent", () => {
+  let component: ScrollbarComponent;
+  let fixture: ComponentFixture<ScrollbarComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
-      imports: [IonicModule.forRoot()],
+      declarations: [ ScrollbarComponent ],
+      imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(ScrollbarComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

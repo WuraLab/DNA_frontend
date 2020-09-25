@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { IonicModule } from "@ionic/angular";
 
-import { DashboardComponent } from "./dashboard.page";
+import { CreateRecordComponent } from "./create-record.page";
 
-describe("DashboardComponent", () => {
-  let component: DashboardComponent;
-  let fixture: ComponentFixture<DashboardComponent>;
+describe("CreateRecordComponent", () => {
+  let component: CreateRecordComponent;
+  let fixture: ComponentFixture<CreateRecordComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [DashboardComponent],
-      imports: [IonicModule.forRoot()],
+      declarations: [ CreateRecordComponent ],
+      imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(DashboardComponent);
+    fixture = TestBed.createComponent(CreateRecordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));
