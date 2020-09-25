@@ -11,7 +11,7 @@ export class RecordService {
   sessionToken;
 
   constructor(private http: HttpClient, private storage: Storage) {
-    this.storage.get("USER_INFO").then((info) => {
+    this.storage.get("USER_INFO").then(info => {
       this.sessionToken = info.sessionToken;
     });
   }

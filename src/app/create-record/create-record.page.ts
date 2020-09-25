@@ -8,7 +8,7 @@ import { format, endOfToday, add, sub } from "date-fns";
   templateUrl: "./create-record.page.html",
   styleUrls: ["./create-record.page.scss"],
 })
-export class CreateRecordPage implements OnInit {
+export class CreateRecordComponent implements OnInit {
   loginForm;
   today: string;
   maxDate: string;
@@ -57,12 +57,12 @@ export class CreateRecordPage implements OnInit {
     this.loading = true;
     console.log(this.loading);
     this.record.createRecord(this.loginForm.value).subscribe(
-      (data) => {
+      data => {
         this.loading = false;
         console.log(data);
         alert("Successfully created record");
       },
-      (errorResponse) => {
+      errorResponse => {
         this.loading = false;
         console.log(errorResponse.error);
       }

@@ -5,19 +5,19 @@ import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { IonicModule } from "@ionic/angular";
 
-import { CreateRecordPageRoutingModule } from "./create-record-routing.module";
+import { CreateRecordComponentRoutingModule } from "./create-record-routing.module";
 
-import { CreateRecordPage } from "./create-record.page";
+import { CreateRecordComponent } from "./create-record.page";
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    CreateRecordPageRoutingModule,
+    CreateRecordComponentRoutingModule,
     ReactiveFormsModule,
     componentsModule,
   ],
-  declarations: [CreateRecordPage],
+  declarations: [CreateRecordComponent],
 })
-export class CreateRecordPageModule {}
+export class CreateRecordComponentModule {}

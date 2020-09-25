@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { IonicModule } from "@ionic/angular";
 
-import { ScrollbarComponent } from './scrollbar.component';
+import { ScrollbarComponent } from "./scrollbar.component";
 
-describe('ScrollbarComponent', () => {
+describe("ScrollbarComponent", () => {
   let component: ScrollbarComponent;
   let fixture: ComponentFixture<ScrollbarComponent>;
 
@@ -18,7 +18,7 @@ describe('ScrollbarComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });
