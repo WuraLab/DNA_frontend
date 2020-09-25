@@ -27,12 +27,11 @@ export class RecordService {
 
   createRecord(info: any) {
     let formattedData = {
-      amount: info.anount,
+      amount: info.amount,
       interest_rate: info.rate,
       description: info.desc,
       due_date: info.end,
     };
-    console.log(this.sessionToken);
 
     return this.http.post(`${APIBaseUrl}/loan/`, formattedData, {
       headers: {

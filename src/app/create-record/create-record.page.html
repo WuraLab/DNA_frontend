@@ -108,6 +108,12 @@
   </div>
 
   <ng-template #loadingTemplate>
-    <ion-spinner name="bubbles"></ion-spinner>
+    <ion-grid fixed>
+      <ion-row class="ion-justify-content-center ion-align-items-center">
+        <ion-col size="auto">
+          <ion-spinner name="bubbles"></ion-spinner>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </ng-template>
 </ion-content>

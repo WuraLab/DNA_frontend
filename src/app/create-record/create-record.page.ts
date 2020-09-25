@@ -58,10 +58,12 @@ export class CreateRecordPage implements OnInit {
     console.log(this.loading);
     this.record.createRecord(this.loginForm.value).subscribe(
       (data) => {
+        this.loading = false;
         console.log(data);
+        alert("Successfully created record");
       },
       (errorResponse) => {
-        this.loading = true;
+        this.loading = false;
         console.log(errorResponse.error);
       }
     );
