@@ -1,0 +1,119 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+    <ion-title>Create Record</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="!loading else loadingTemplate">
+    <ion-list>
+      <ion-list-header>
+        <h2 class="head-text">Loan Info</h2>
+      </ion-list-header>
+    </ion-list>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input
+          required
+          formControlName="name"
+          type="text"
+          placeholder="Third party name"
+        ></ion-input>
+      </ion-item>
+
+      <ion-row class="ion-margin-bottom">
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Loan Amount</ion-label>
+            <ion-input
+              formControlName="amount"
+              type="number"
+              placeholder="Amount Involved"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Interest Rate</ion-label>
+            <ion-input
+              formControlName="rate"
+              type="number"
+              placeholder="Percentage interest on this loan"
+            ></ion-input>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating">Loan Category</ion-label>
+        <ion-select formControlName="category" placeholder="Select a category">
+          <ion-select-option value="giving">Giving out</ion-select-option>
+          <ion-select-option value="taking">Taking in</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-row class="ion-margin-bottom">
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Start Date</ion-label>
+            <ion-datetime
+              formControlName="start"
+              displayFormat="MM/DD/YYYY"
+              [min]="minDate"
+              [max]="maxDate"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col size="6">
+          <ion-item>
+            <ion-label position="floating">Due Date</ion-label>
+            <ion-datetime
+              formControlName="end"
+              displayFormat="MM/DD/YYYY"
+              [min]="loginForm.value.start"
+              [max]="maxDate"
+              [value]="loginForm.value.start"
+            ></ion-datetime>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+
+      <ion-item class="ion-margin-bottom">
+        <ion-label position="floating">Description (Optional)</ion-label>
+        <ion-textarea
+          formControlName="desc"
+          placeholder="Enter more information here..."
+        ></ion-textarea>
+      </ion-item>
+
+      <ion-row class="ion-justify-content-center">
+        <ion-col size="auto">
+          <ion-button
+            block
+            color="primary"
+            type="submit"
+            class="form-btn"
+            [disabled]="loginForm.invalid"
+          >
+            Next
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </form>
+  </div>
+
+  <ng-template #loadingTemplate>
+    <ion-grid fixed>
+      <ion-row class="ion-justify-content-center ion-align-items-center">
+        <ion-col size="auto">
+          <ion-spinner name="bubbles"></ion-spinner>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
+</ion-content>

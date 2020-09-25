@@ -37,12 +37,12 @@ export class DashboardComponent implements OnInit {
     this.authState = this.authService.isAuthenticated();
     if (this.authState) {
       // this.storage.keys().then((info) => (this.userInfo = info));
-      this.storage.get("USER_INFO").then((info) => {
+      this.storage.get("USER_INFO").then(info => {
         this.userInfo = info;
-        let sessionToken = this.userInfo.sessionToken;
+        // let sessionToken = this.userInfo.sessionToken;
         this.recordService
-          .getLoans(sessionToken)
-          .subscribe((records) => (this.records = records));
+          .getLoans()
+          .subscribe(records => (this.records = records));
       });
     }
   }

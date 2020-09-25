@@ -1,19 +1,19 @@
 import { async, ComponentFixture, TestBed } from "@angular/core/testing";
 import { IonicModule } from "@ionic/angular";
 
-import { ScrollbarComponent } from "./scrollbar.component";
+import { CreateRecordComponent } from "./create-record.page";
 
-describe("ScrollbarComponent", () => {
-  let component: ScrollbarComponent;
-  let fixture: ComponentFixture<ScrollbarComponent>;
+describe("CreateRecordComponent", () => {
+  let component: CreateRecordComponent;
+  let fixture: ComponentFixture<CreateRecordComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ScrollbarComponent ],
+      declarations: [ CreateRecordComponent ],
       imports: [IonicModule.forRoot()]
     }).compileComponents();
 
-    fixture = TestBed.createComponent(ScrollbarComponent);
+    fixture = TestBed.createComponent(CreateRecordComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   }));

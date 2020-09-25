@@ -30,7 +30,12 @@
         <ng-template #noTrans>
           <div class="no-trans">
             <h1>You do not currently have any loan record</h1>
-            <ion-button expand="block" fill="clear" shape="round">
+            <ion-button
+              expand="block"
+              fill="clear"
+              shape="round"
+              (click)="navToCreate()"
+            >
               Start by adding some records
             </ion-button>
           </div>
