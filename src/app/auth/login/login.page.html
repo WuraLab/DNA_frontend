@@ -3,11 +3,24 @@
     <h1 class="welcome-text">Welcome <br />Back</h1>
   </ion-text>
 
-  <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
     <ion-list>
+      <div *ngIf="notify" class="alert alert-success">
+        <h4>{{ notify }}</h4>
+      </div>
+      <div *ngIf="errors" class="alert alert-danger">
+        <h4>{{ errors }}</h4>
+      </div>
+
       <ion-item>
         <ion-label position="floating">Email Address</ion-label>
-        <ion-input formControlName="email" type="text" value="" autocapitalize="off" required></ion-input>
+        <ion-input
+          formControlName="email"
+          type="text"
+          value=""
+          autocapitalize="off"
+          required
+        ></ion-input>
       </ion-item>
 
       <!-- validator text-->
@@ -23,7 +36,13 @@
 
       <ion-item>
         <ion-label position="floating">Password</ion-label>
-        <ion-input formControlName="password" type="password" [value]="" autocapitalize="off" required>
+        <ion-input
+          formControlName="password"
+          type="password"
+          [value]=""
+          autocapitalize="off"
+          required
+        >
         </ion-input>
       </ion-item>
 
@@ -37,11 +56,18 @@
         </p>
       </ion-text> -->
 
-      <div class="forgot-password" [routerLink]="['/forgot-password']">Forgot password</div>
+      <div class="forgot-password" [routerLink]="['/forgot-password']">
+        Forgot password
+      </div>
     </ion-list>
 
-    <ion-button type="submit" class="ion-text-capitalize signin-btn" expand="block" [disabled]="loginForm.invalid">Sign
-      In</ion-button>
+    <ion-button
+      type="submit"
+      class="ion-text-capitalize signin-btn"
+      expand="block"
+      [disabled]="loginForm.invalid"
+      >Sign In</ion-button
+    >
   </form>
 
   <ion-row class="ion-ajustify-content-center option-text">
@@ -56,7 +82,12 @@
     </ion-Col>
   </ion-row>
 
-  <ion-button type="submit" [routerLink]="['/signup']" class="ion-text-capitalize signup-btn" expand="block">Sign Up
+  <ion-button
+    type="submit"
+    [routerLink]="['/signup']"
+    class="ion-text-capitalize signup-btn"
+    expand="block"
+    >Sign Up
   </ion-button>
   <!-- <SignInAuth></SignInAuth> -->
 </ion-content>

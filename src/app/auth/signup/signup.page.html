@@ -12,8 +12,14 @@
     <h1 class="welcome-text">Create <br />Account</h1>
   </ion-text>
 
-  <form novalidate [formGroup]="signupForm" (ngSubmit)="onSubmit(signupForm)">
+  <form novalidate [formGroup]="signupForm" (ngSubmit)="signup()">
     <ion-list>
+      <div *ngIf="errors.length > 0">
+        <div class="http-error" *ngFor="let error of errors">
+          <h4>{{ error }}</h4>
+        </div>
+      </div>
+
       <!-- Name -->
       <ion-item>
         <ion-label position="floating">Name</ion-label>
@@ -89,7 +95,6 @@
   </ion-row>
 
   <ion-button
-    type="submit"
     [routerLink]="['/login']"
     class="ion-text-capitalize signup-btn"
     expand="block"

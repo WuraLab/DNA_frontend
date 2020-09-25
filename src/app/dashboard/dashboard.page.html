@@ -4,12 +4,90 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  Welcome
+<ion-content class="ion-padding">
+  <ion-item class="welcome-item" lines="none">
+    <ion-avatar slot="start">
+      <img
+        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5d/European_shorthair_procumbent_Quincy.jpg/1200px-European_shorthair_procumbent_Quincy.jpg"
+      />
+    </ion-avatar>
 
-  Auth state: {{authState}}
+    <ion-icon name="close" slot="end"></ion-icon>
+
+    <ion-label>
+      <h2>Welcome Back</h2>
+      <h4>{{userInfo?.result.user.username}}</h4>
+    </ion-label>
+
+    <ion-button (click)="logout()" expand="block" fill="block" shape="round">
+      Logout
+    </ion-button>
+  </ion-item>
+
+  <ion-list class="ion-margin-top">
+    <!-- record Overview -->
+    <div class="ion-margin-bottom">
+      <ion-item lines="none">
+        <ion-label class="cat-title">
+          <h2>Loan record view</h2>
+        </ion-label>
+        <ion-icon name="apps-outline" slot="end"></ion-icon>
+      </ion-item>
+      <div class="ion-padding" class="scroll-container record-scroll">
+        <ion-item
+          class="create"
+          button
+          [routerLink]="['/create']"
+          routerLinkActive="router-link-active"
+        >
+          <ion-icon name="add"></ion-icon>
+        </ion-item>
+
+        <ion-card *ngFor="let record of categories" class="scroll-card card-1">
+          <ion-card-content>
+            <div class="circle">
+              <span>{{record.value}}</span>
+            </div>
+            <p>{{record.type}}</p>
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+
+    <!-- services -->
+    <div class="ion-margin-bottom">
+      <ion-item lines="none">
+        <ion-label class="cat-title">
+          <h2>Services</h2>
+        </ion-label>
+        <ion-icon name="apps-outline" slot="end"></ion-icon>
+      </ion-item>
+      <div class="ion-padding" class="scroll-container service-scroll">
+        <div *ngFor="let service of services" class="scroll-card">
+          <ion-card class="card-2">
+            <ion-card-content>
+              <ion-icon slot="start" [name]="service.icon"></ion-icon>
+            </ion-card-content>
+          </ion-card>
+          <p class="name">{{service.type}}</p>
+        </div>
+      </div>
+    </div>
+  </ion-list>
+
+  <app-scrollbar
+    class="scrollbar-cont"
+    [recentTrans]="this.records"
+  ></app-scrollbar>
+
+  <!-- Welcome, Auth state: {{authState}}
+
+  <h2>{{userInfo?.message}}</h2>
+  <div>
+    {{userInfo?.result.user.username}}
+  </div>
 
   <ion-button (click)="logout()" expand="block" fill="clear" shape="round">
     Logout
-  </ion-button>
+  </ion-button> -->
 </ion-content>

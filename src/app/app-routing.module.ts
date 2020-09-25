@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { PreloadAllModules, RouterModule, Routes } from "@angular/router";
-import { AuthGuardService } from "./services/auth-guard.service";
+import { AuthGuardService } from "./auth/auth-guard.service";
 
 const routes: Routes = [
   {
@@ -11,16 +11,16 @@ const routes: Routes = [
   {
     path: "login",
     loadChildren: () =>
-      import("./login/login.module").then(m => m.LoginPageModule),
+      import("./auth/login/login.module").then(m => m.LoginPageModule),
   },
   {
     path: "forgot-password",
-    loadChildren: () => import("./forgot-password/forgot-password.module").then( m => m.ForgotPasswordPageModule)
+    loadChildren: () => import("./auth/forgot-password/forgot-password.module").then( m => m.ForgotPasswordPageModule)
   },
   {
     path: "signup",
     loadChildren: () =>
-      import("./signup/signup.module").then(m => m.SignupPageModule),
+      import("./auth/signup/signup.module").then(m => m.SignupPageModule),
   },
   {
     path: "dashboard",
@@ -29,13 +29,16 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
   },   {
     path: "confirm-code",
-    loadChildren: () => import("./confirm-code/confirm-code.module").then( m => m.ConfirmCodePageModule)
+    loadChildren: () => import("./auth/confirm-code/confirm-code.module").then( m => m.ConfirmCodePageModule)
   },
   {
     path: "reset",
-    loadChildren: () => import("./new-password/new-password.module").then( m => m.NewPasswordPageModule)
+    loadChildren: () => import("./auth/new-password/new-password.module").then( m => m.NewPasswordPageModule)
   },
-
+  {
+    path: "create",
+    loadChildren: () => import("./create-record/create-record.module").then( m => m.CreateRecordComponentModule)
+  },
 ];
 
 @NgModule({
