@@ -45,6 +45,7 @@ export class ForgotPasswordComponent implements OnInit {
           queryParams: { email: this.resetForm.value.email },
         });
         console.log(res);
+        this.isFetching = false;
       },
       (err) => {
         console.log(err);

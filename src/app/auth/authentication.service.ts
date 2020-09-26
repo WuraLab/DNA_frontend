@@ -94,6 +94,13 @@ export class AuthenticationService {
   }
 
   validateToken(token) {
-    return this.http.post(`${this.baseRoute}recovery/`, token);
+    let formattedData = {
+      token: token.code,
+    };
+
+    return this.http.post(
+      `${this.baseRoute}recovery/validate_token/`,
+      formattedData
+    );
   }
 }
