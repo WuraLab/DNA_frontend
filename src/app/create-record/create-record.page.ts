@@ -20,7 +20,6 @@ export class CreateRecordComponent implements OnInit {
     this.loading = false;
     // today's date returned in formatted string
     this.today = format(endOfToday(), this.rangeformat);
-    console.log("today", this.today);
 
     // set minimun date to 20 years to today's date and also return formatted string
     this.minDate = format(
@@ -29,7 +28,6 @@ export class CreateRecordComponent implements OnInit {
       }),
       this.rangeformat
     );
-    console.log("mindate", this.minDate);
 
     // add 20 years to today's date and also return formatted string
     this.maxDate = format(
@@ -38,7 +36,6 @@ export class CreateRecordComponent implements OnInit {
       }),
       this.rangeformat
     );
-    console.log("maxdate", this.maxDate);
   }
 
   ngOnInit() {

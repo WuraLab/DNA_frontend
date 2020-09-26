@@ -37,7 +37,7 @@ export class LoginComponent implements OnInit {
       password: ["", [Validators.required, Validators.minLength(6)]],
     });
 
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       const key1 = "registered";
       const key2 = "loggedOut";
 
@@ -53,14 +53,15 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.errors = "";
-    this.auth.authState.subscribe(state => console.log(state));
+    this.auth.authState.subscribe((state) => console.log(state));
 
     this.auth.login(this.loginForm.value).subscribe(
-      token => {
+      (token) => {
         console.log(token);
 
         // gets the user using the returned token
-        this.auth.getUser(token).subscribe(data => {
+        this.auth.getUser(token).subscribe((data) => {
+          data.sessionToken = token;
           console.log(data);
           this.storage.set("USER_INFO", data);
           this.auth.authState.next(true);
@@ -69,7 +70,7 @@ export class LoginComponent implements OnInit {
           });
         });
       },
-      errorResponse => {
+      (errorResponse) => {
         console.log(errorResponse);
         if (errorResponse.status === 400) {
           this.errors = "Username or password is incorrect";

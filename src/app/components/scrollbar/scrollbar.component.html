@@ -9,21 +9,21 @@
         <ion-button>See All</ion-button>
       </ion-list-header>
 
-      <div *ngIf="transLoading; else loading">
-        <div *ngIf="recentTrans > 0; else noTrans">
-          <ion-item button *ngFor="let tran of recentTrans" lines="none">
+      <div *ngIf="!transLoading; else loading">
+        <div *ngIf="formattedTrans; else noTrans">
+          <ion-item button *ngFor="let trans of formattedTrans" lines="none">
             <ion-avatar slot="start">
               <img [src]="avatar" />
             </ion-avatar>
             <ion-label>
-              <h2>Gbolahan</h2>
+              <h2>{{ trans?.name }}</h2>
               <h4>
-                Just Now
+                {{ trans.fCreateDate }}
                 <span><ion-icon slot="start" name="add"></ion-icon></span>
               </h4>
             </ion-label>
 
-            <ion-label slot="end">N3,200.00</ion-label>
+            <ion-label slot="end">{{ trans?.amount }}</ion-label>
           </ion-item>
         </div>
 
