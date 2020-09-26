@@ -39,7 +39,9 @@ export class confirmCodeComponent implements OnInit {
       (res: any) => {
         this.isFetching = false;
         if (/active/.test(res.message)) {
-          this.router.navigate(["/reset"]);
+          this.router.navigate(["/reset"], {
+            queryParams: { email: this.email, token: this.codeForm.value.code },
+          });
         } else {
           this.errorMessage = res.message;
         }

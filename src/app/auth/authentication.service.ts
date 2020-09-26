@@ -103,4 +103,12 @@ export class AuthenticationService {
       formattedData
     );
   }
+
+  resetPassword(token, password) {
+    let formattedData = {
+      token: token,
+      password: password,
+    };
+    return this.http.post(`${this.baseRoute}recovery/confirm/`, formattedData);
+  }
 }
