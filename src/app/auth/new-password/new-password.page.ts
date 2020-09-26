@@ -32,7 +32,7 @@ export class NewPasswordComponent implements OnInit {
       confirmPassword: [""],
     });
 
-    this.activtedRoute.queryParams.subscribe((params) => {
+    this.activtedRoute.queryParams.subscribe(params => {
       this.email = params["email"];
       this.token = params["token"];
     });
@@ -42,11 +42,11 @@ export class NewPasswordComponent implements OnInit {
     this.auth
       .resetPassword(this.token, this.passwordForm.value.password)
       .subscribe(
-        (res) => {
+        res => {
           this.isFetching = false;
           this.route.navigate(["/login"]);
         },
-        (err) => {
+        err => {
           console.log(err);
           if (err.status === 0) {
             this.errorMessage =

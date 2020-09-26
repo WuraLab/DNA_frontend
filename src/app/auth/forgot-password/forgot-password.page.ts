@@ -47,7 +47,7 @@ export class ForgotPasswordComponent implements OnInit {
         console.log(res);
         this.isFetching = false;
       },
-      (err) => {
+      err => {
         console.log(err);
         if (err.status === 0) {
           this.errorMessage =

@@ -27,7 +27,7 @@ export class confirmCodeComponent implements OnInit {
     this.codeForm = this.fb.group({
       code: ["", [Validators.required]],
     });
-    this.route.queryParams.subscribe((params) => {
+    this.route.queryParams.subscribe(params => {
       this.email = params["email"];
     });
   }
@@ -46,7 +46,7 @@ export class confirmCodeComponent implements OnInit {
           this.errorMessage = res.message;
         }
       },
-      (err) => {
+      err => {
         console.log(err);
         if (err.status === 0) {
           this.errorMessage =
