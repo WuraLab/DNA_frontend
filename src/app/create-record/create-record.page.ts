@@ -13,29 +13,37 @@ export class CreateRecordComponent implements OnInit {
   today: string;
   maxDate: string;
   minDate: string;
-  rangeformat = "yyyy-MM-dd";
+  rangeformat = "yyyy-MM-dd'T'HH:mm:ss.SSSxxx";
   loading: boolean;
 
   constructor(private fb: FormBuilder, private record: RecordService) {
     this.loading = false;
     // today's date returned in formatted string
-    this.today = format(endOfToday(), this.rangeformat);
-
+    this.today = format(Date.now(), this.rangeformat);
     // set minimun date to 20 years to today's date and also return formatted string
     this.minDate = format(
-      sub(new Date(this.today), {
+      sub(Date.now(), {
         years: 20,
       }),
       this.rangeformat
     );
-
+  console.log(this.minDate)
     // add 20 years to today's date and also return formatted string
+    // this.maxDate = format(
+    //   add(new Date(this.today), {
+    //     years: 20,
+    //   }),
+    //   this.rangeformat
+    // );
+
     this.maxDate = format(
-      add(new Date(this.today), {
-        years: 20,
-      }),
-      this.rangeformat
-    );
+        add(Date.now(), {
+          years: 20,
+        }),
+        this.rangeformat
+      );
+  console.log(this.maxDate)
+
   }
 
   ngOnInit() {
@@ -52,11 +60,9 @@ export class CreateRecordComponent implements OnInit {
 
   onSubmit() {
     this.loading = true;
-    console.log(this.loading);
     this.record.createRecord(this.loginForm.value).subscribe(
       data => {
         this.loading = false;
-        console.log(data);
         alert("Successfully created record");
       },
       errorResponse => {

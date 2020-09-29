@@ -19,11 +19,13 @@
               <h2>{{ trans?.name }}</h2>
               <h4>
                 {{ trans.fCreateDate }}
-                <span><ion-icon slot="start" name="add"></ion-icon></span>
+                <!-- <span><ion-icon slot="start" name="add"></ion-icon></span> -->
               </h4>
             </ion-label>
 
-            <ion-label slot="end">{{ trans?.amount }}</ion-label>
+            <ion-label slot="end" class="ion-text-end">{{
+              trans?.amount
+            }}</ion-label>
           </ion-item>
         </div>
 
