@@ -19,7 +19,13 @@
       <h4>{{userInfo?.result.user.username}}</h4>
     </ion-label>
 
-    <ion-button (click)="logout()" expand="block" fill="block" shape="round">
+    <ion-button
+      slot="end"
+      (click)="logout()"
+      expand="block"
+      fill="clear"
+      shape="round"
+    >
       Logout
     </ion-button>
   </ion-item>

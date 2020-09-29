@@ -34,7 +34,7 @@ ion-row {
 
 .code-form {
 	margin: auto;
-	width: 130px;
+	width: 230px;
 }
 
 .head-text {
@@ -50,4 +50,10 @@ ion-row {
 .head-text2 {
 	color: #dedede;
 	font-size: 25px;
+}
+
+.spinner {
+	ion-spinner {
+		--color: #70cdf0;
+	}
 }

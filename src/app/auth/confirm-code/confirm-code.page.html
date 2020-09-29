@@ -9,28 +9,59 @@
 
 <ion-content class="ion-padding">
   <!-- The second step where you enter the code -->
-  <div id="stage-2">
+  <div id="stage-2" *ngIf="!isFetching else fetching">
     <ion-row class="ion-align-items-center ion-justify-content-end">
       <ion-col>
+        <ion-text *ngIf="errorMessage" color="secondary">
+          <h2 class="ion-text-center">{{errorMessage}}</h2>
+        </ion-text>
         <ion-text class="ion-text-center">
           <h1 class="head-text">Check your email for a code</h1>
         </ion-text>
         <ion-text class="ion-text-center">
-          <h2 class="head-text2">We’ve sent a 6-digit code to mailto@mailer.com. The code expires shortly, so please
-            enter it soon.</h2>
+          <h2 class="head-text2">
+            We’ve sent a token code to {{email}}. The code expires shortly, so
+            please enter it soon.
+          </h2>
         </ion-text>
 
-        <form [formGroup]="codeForm" class="code-form">
-          <ion-input ionChange="" type="number" formControlName="code" value="" autocapitalize="off" required placeholder="6-digit code">
+        <form [formGroup]="codeForm" class="code-form" (ngSubmit)="continue()">
+          <ion-input
+            ionChange=""
+            type="text"
+            formControlName="code"
+            value=""
+            autocapitalize="off"
+            required
+            placeholder="Paste Token Here"
+          >
           </ion-input>
-        </form>
 
-        <div imargin>
-          <p class="ion-text-center no-code">Can’t find your code? Check your spam folder!</p>
-          <ion-button type="submit" class="ion-text-capitalize signin-btn" expand="block" [disabled]="codeForm.invalid">
-            Resend Link</ion-button>
-        </div>
+          <div>
+            <p class="ion-text-center no-code">
+              Can’t find your code? Check your spam folder!
+            </p>
+            <ion-button
+              type="submit"
+              class="ion-text-capitalize signin-btn"
+              expand="block"
+              [disabled]="codeForm.invalid"
+            >
+              Continue</ion-button
+            >
+          </div>
+        </form>
       </ion-col>
     </ion-row>
   </div>
+
+  <ng-template #fetching>
+    <ion-grid fixed>
+      <ion-row class="ion-align-items-center ion-justify-content-center">
+        <ion-col size="auto" class="spinner">
+          <ion-spinner name="bubbles"></ion-spinner>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ng-template>
 </ion-content>

@@ -58,13 +58,12 @@ export class AuthenticationService {
     return this.http.post(`${this.baseRoute}login/`, formatedData).pipe(
       map((res: any) => {
         let token = res.token;
-        return token
+        return token;
       })
     );
   }
 
   public getUser(id: any): Observable<any> {
-    console.log(id);
     return this.http.get(`${this.baseRoute}profile/`, {
       headers: {
         Authorization: `token ${id}`,
@@ -88,5 +87,28 @@ export class AuthenticationService {
 
   isAuthenticated() {
     return this.authState.value;
+  }
+
+  passwordRecovery(email) {
+    return this.http.post(`${this.baseRoute}recovery/`, email);
+  }
+
+  validateToken(token) {
+    let formattedData = {
+      token: token.code,
+    };
+
+    return this.http.post(
+      `${this.baseRoute}recovery/validate_token/`,
+      formattedData
+    );
+  }
+
+  resetPassword(token, password) {
+    let formattedData = {
+      token: token,
+      password: password,
+    };
+    return this.http.post(`${this.baseRoute}recovery/confirm/`, formattedData);
   }
 }
