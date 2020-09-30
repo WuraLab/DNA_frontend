@@ -1,6 +1,6 @@
 import { NavController } from "@ionic/angular";
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
-import { endOfToday, formatDistance } from "date-fns";
+import { endOfToday, formatDistance, formatDistanceToNow, formatDistanceToNowStrict } from "date-fns";
 
 interface transaction {
   name: String;
@@ -34,10 +34,9 @@ export class ScrollbarComponent implements OnInit {
       if (this.recentTrans) {
         console.log(this.recentTrans)
         this.formattedTrans = this.recentTrans.map((trans) => {
-          trans.fCreateDate = formatDistance(
+          trans.fCreateDate =  formatDistanceToNow(
             new Date(trans.created),
-            new Date(endOfToday()),
-            { addSuffix: true }
+            {addSuffix: true}
           )
           return (trans)        
         })
@@ -51,5 +50,9 @@ export class ScrollbarComponent implements OnInit {
 
   navToCreate() {
     this.nav.navigateForward("/create");
+  }
+
+  navToAllLoans() {
+    this.nav.navigateForward("/records");
   }
 }

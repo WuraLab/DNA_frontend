@@ -6,25 +6,16 @@
         <ion-label>
           <h2>Recent Transactions</h2>
         </ion-label>
-        <ion-button>See All</ion-button>
+        <ion-button disabled="(!formattedTrans)" (click)="navToAllLoans()"
+          >See All</ion-button
+        >
       </ion-list-header>
 
       <div *ngIf="!transLoading; else loading">
         <div *ngIf="formattedTrans; else noTrans">
-          <ion-item button *ngFor="let trans of formattedTrans" lines="none">
-            <ion-avatar slot="start">
-              <img [src]="avatar" />
-            </ion-avatar>
-            <ion-label>
-              <h2>{{ trans?.name }}</h2>
-              <h4>
-                {{ trans.fCreateDate }}
-                <span><ion-icon slot="start" name="add"></ion-icon></span>
-              </h4>
-            </ion-label>
-
-            <ion-label slot="end">{{ trans?.amount }}</ion-label>
-          </ion-item>
+          <div *ngFor="let trans of formattedTrans">
+            <app-record-card [record]="[trans]"></app-record-card>
+          </div>
         </div>
 
         <ng-template #noTrans>
