@@ -1,6 +1,8 @@
+import { map } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
+import { formatDistanceToNow } from "date-fns";
 
 const APIBaseUrl = "https://dnappserver.herokuapp.com/api/v1";
 
@@ -11,7 +13,7 @@ export class RecordService {
   sessionToken;
 
   constructor(private http: HttpClient, private storage: Storage) {
-    this.storage.get("USER_INFO").then((info) => {
+    this.storage.get("USER_INFO").then(info => {
       this.sessionToken = info.sessionToken;
     });
   }
@@ -22,7 +24,18 @@ export class RecordService {
       headers: {
         Authorization: `token ${this.sessionToken}`,
       },
-    });
+    }).pipe(
+     map((trans: any) => {
+        console.log(1)
+        // console.log(trans.result.created)
+        //   trans.fCreateDate =  formatDistanceToNow(
+        //     new Date(trans.created),
+        //     {addSuffix: true}
+        //   )
+        //   console.log(trans)
+        //   return trans        
+      })
+     )
   }
 
   createRecord(info: any) {

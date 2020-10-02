@@ -40,7 +40,6 @@ export class ScrollbarComponent implements OnInit {
           )
           return (trans)        
         })
-        console.log(this.formattedTrans)
       }
     }
   }

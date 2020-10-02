@@ -45,8 +45,8 @@ export class CreateRecordComponent implements OnInit {
       amount: ["", [Validators.required]],
       rate: [0],
       category: ["", [Validators.required]],
-      start: [this.today, [Validators.required]],
-      end: [this.today, [Validators.required]],
+      start: [this.time, [Validators.required]],
+      end: [this.time, [Validators.required]],
       desc: [""],
     });
   }

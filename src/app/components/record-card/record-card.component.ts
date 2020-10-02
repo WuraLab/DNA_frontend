@@ -11,7 +11,6 @@ export class RecordCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    this.record = this.record[0];
   }
 
 }
