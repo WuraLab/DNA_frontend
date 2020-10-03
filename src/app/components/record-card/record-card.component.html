@@ -11,6 +11,6 @@
   </ion-label>
 
   <ion-label class="ion-text-right" slot="end">
-    <span>₦</span> {{ record?.amount }}</ion-label
+    {{ record?.amount | currency }}</ion-label
   >
 </ion-item>

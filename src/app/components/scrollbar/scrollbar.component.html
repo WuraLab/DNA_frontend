@@ -6,14 +6,14 @@
         <ion-label>
           <h2>Recent Transactions</h2>
         </ion-label>
-        <ion-button [disabled]="!formattedTrans" (click)="navToAllLoans()"
+        <ion-button [disabled]="!recentTrans" (click)="navToAllLoans()"
           >See All</ion-button
         >
       </ion-list-header>
 
       <div *ngIf="!transLoading; else loading">
-        <div *ngIf="formattedTrans; else noTrans">
-          <div *ngFor="let trans of formattedTrans">
+        <div *ngIf="recentTrans; else noTrans">
+          <div *ngFor="let trans of recentTrans">
             <app-record-card [record]="trans"></app-record-card>
           </div>
         </div>

@@ -15,9 +15,8 @@ export class RecordsPage implements OnInit {
 
   ngOnInit() {
       this.recordService.getLoans().subscribe((records: any) => {
-          this.records = records.result;
-          console.log(this.records);
-        });
+          this.records = records;
+      });
   }
 
 }

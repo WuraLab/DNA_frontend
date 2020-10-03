@@ -42,7 +42,6 @@ export class DashboardComponent implements OnInit {
         // let sessionToken = this.userInfo.sessionToken;
         this.recordService.getLoans().subscribe((records) => {
           this.records = records;
-          console.log(this.records);
         });
       });
     }

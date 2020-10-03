@@ -20,7 +20,7 @@ export class ScrollbarComponent implements OnInit {
   avatar = "assets/avatar/png";
   transLoading: boolean;
   @Input() recentTrans: any;
-  formattedTrans
+  
   constructor(private nav: NavController) {
     this.transLoading = true;
   }
@@ -33,13 +33,6 @@ export class ScrollbarComponent implements OnInit {
 
       if (this.recentTrans) {
         console.log(this.recentTrans)
-        this.formattedTrans = this.recentTrans.map((trans) => {
-          trans.fCreateDate =  formatDistanceToNow(
-            new Date(trans.created),
-            {addSuffix: true}
-          )
-          return (trans)        
-        })
       }
     }
   }

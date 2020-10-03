@@ -1,4 +1,4 @@
-import { NgModule } from "@angular/core";
+import { DEFAULT_CURRENCY_CODE, NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
 import { RouteReuseStrategy } from "@angular/router";
 
@@ -32,6 +32,7 @@ import { HttpClientModule } from "@angular/common/http";
     AuthGuardService,
     AuthenticationService,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy },
+    {provide: DEFAULT_CURRENCY_CODE, useValue: "₦" }
   ],
   bootstrap: [AppComponent],
 })

@@ -2,7 +2,7 @@ import { map } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
-import { formatDistanceToNow } from "date-fns";
+import { DateServiceService } from "./date-service.service";
 
 const APIBaseUrl = "https://dnappserver.herokuapp.com/api/v1";
 
@@ -12,30 +12,30 @@ const APIBaseUrl = "https://dnappserver.herokuapp.com/api/v1";
 export class RecordService {
   sessionToken;
 
-  constructor(private http: HttpClient, private storage: Storage) {
-    this.storage.get("USER_INFO").then(info => {
+  constructor(
+    private http: HttpClient,
+    private storage: Storage,
+    private dateService: DateServiceService
+  ) {
+    this.storage.get("USER_INFO").then((info) => {
       this.sessionToken = info.sessionToken;
     });
   }
 
   getLoans() {
-    console.log(this.sessionToken);
-    return this.http.get(`${APIBaseUrl}/loan/`, {
-      headers: {
-        Authorization: `token ${this.sessionToken}`,
-      },
-    }).pipe(
-     map((trans: any) => {
-        console.log(1)
-        // console.log(trans.result.created)
-        //   trans.fCreateDate =  formatDistanceToNow(
-        //     new Date(trans.created),
-        //     {addSuffix: true}
-        //   )
-        //   console.log(trans)
-        //   return trans        
+    return this.http
+      .get(`${APIBaseUrl}/loan/`, {
+        headers: {
+          Authorization: `token ${this.sessionToken}`,
+        },
       })
-     )
+      .pipe(
+        map((res: any) => {
+          return res.result.map((record: any) => {
+            return this.dateService.formatAsDate(record);
+          });
+        })
+      );
   }
 
   createRecord(info: any) {
