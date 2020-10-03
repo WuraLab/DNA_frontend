@@ -13,7 +13,9 @@
 
       <div *ngIf="!transLoading; else loading">
         <div *ngIf="recentTrans; else noTrans">
-          <div *ngFor="let trans of recentTrans">
+          <div
+            *ngFor="let trans of fs.orderByDate(recentTrans, 'created', true)"
+          >
             <app-record-card [record]="trans"></app-record-card>
           </div>
         </div>
