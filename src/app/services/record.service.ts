@@ -1,6 +1,8 @@
+import { map } from "rxjs/operators";
 import { HttpClient } from "@angular/common/http";
 import { Injectable } from "@angular/core";
 import { Storage } from "@ionic/storage";
+import { DateServiceService } from "./date-service.service";
 
 const APIBaseUrl = "https://dnappserver.herokuapp.com/api/v1";
 
@@ -10,19 +12,30 @@ const APIBaseUrl = "https://dnappserver.herokuapp.com/api/v1";
 export class RecordService {
   sessionToken;
 
-  constructor(private http: HttpClient, private storage: Storage) {
-    this.storage.get("USER_INFO").then((info) => {
+  constructor(
+    private http: HttpClient,
+    private storage: Storage,
+    private dateService: DateServiceService
+  ) {
+    this.storage.get("USER_INFO").then(info => {
       this.sessionToken = info.sessionToken;
     });
   }
 
   getLoans() {
-    console.log(this.sessionToken);
-    return this.http.get(`${APIBaseUrl}/loan/`, {
-      headers: {
-        Authorization: `token ${this.sessionToken}`,
-      },
-    });
+    return this.http
+      .get(`${APIBaseUrl}/loan/`, {
+        headers: {
+          Authorization: `token ${this.sessionToken}`,
+        },
+      })
+      .pipe(
+        map((res: any) => {
+          return res.result.map((record: any) => {
+            return this.dateService.formatAsDate(record);
+          });
+        })
+      );
   }
 
   createRecord(info: any) {

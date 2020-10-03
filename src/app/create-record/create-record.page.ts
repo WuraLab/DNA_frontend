@@ -10,20 +10,21 @@ import { format, endOfToday, add, sub } from "date-fns";
 })
 export class CreateRecordComponent implements OnInit {
   loginForm;
-  today: string;
+  time: string;
   maxDate: string;
   minDate: string;
-  rangeformat = "yyyy-MM-dd";
+  rangeformat = "yyyy-MM-dd'T'HH:mm:ss.SSS";
   loading: boolean;
 
   constructor(private fb: FormBuilder, private record: RecordService) {
     this.loading = false;
     // today's date returned in formatted string
-    this.today = format(endOfToday(), this.rangeformat);
+    this.time = format(Date.now(), this.rangeformat);
 
+    console.log(this.time);
     // set minimun date to 20 years to today's date and also return formatted string
     this.minDate = format(
-      sub(new Date(this.today), {
+      sub(new Date(this.time), {
         years: 20,
       }),
       this.rangeformat
@@ -31,7 +32,7 @@ export class CreateRecordComponent implements OnInit {
 
     // add 20 years to today's date and also return formatted string
     this.maxDate = format(
-      add(new Date(this.today), {
+      add(new Date(this.time), {
         years: 20,
       }),
       this.rangeformat
@@ -44,8 +45,8 @@ export class CreateRecordComponent implements OnInit {
       amount: ["", [Validators.required]],
       rate: [0],
       category: ["", [Validators.required]],
-      start: [this.today, [Validators.required]],
-      end: [this.today, [Validators.required]],
+      start: [this.time, [Validators.required]],
+      end: [this.time, [Validators.required]],
       desc: [""],
     });
   }

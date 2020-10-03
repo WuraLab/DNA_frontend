@@ -39,6 +39,10 @@ const routes: Routes = [
     path: "create",
     loadChildren: () => import("./create-record/create-record.module").then( m => m.CreateRecordComponentModule)
   },
+  {
+    path: "records",
+    loadChildren: () => import("./records/records.module").then( m => m.RecordsComponentModule)
+  },
 ];
 
 @NgModule({

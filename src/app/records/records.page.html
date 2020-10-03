@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+    <ion-title>records</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="records">
+    <div *ngFor="let record of records">
+      <app-record-card [record]="record"></app-record-card>
+    </div>
+  </div>
+</ion-content>

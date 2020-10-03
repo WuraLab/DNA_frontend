@@ -1,0 +1,16 @@
+<ion-item button lines="inset" *ngIf="record">
+  <ion-avatar slot="start">
+    <img [src]="avatar" />
+  </ion-avatar>
+  <ion-label>
+    <h2>{{ record?.name }}</h2>
+    <h4>
+      {{ record?.fCreateDate }}
+      <span><ion-icon slot="start" name="add"></ion-icon></span>
+    </h4>
+  </ion-label>
+
+  <ion-label class="ion-text-right" slot="end">
+    {{ record?.amount | currency }}</ion-label
+  >
+</ion-item>
