@@ -1,0 +1,14 @@
+.peep-status {
+	height: 100%;
+	left: 6px;
+	position: absolute;
+	width: 3px;
+}
+
+.peep-due {
+	background: rgb(255, 0, 0);
+}
+
+.peep-active {
+	background: rgb(2, 112, 2);
+}

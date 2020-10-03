@@ -40,6 +40,7 @@ export class RecordService {
 
   createRecord(info: any) {
     let formattedData = {
+      name: info.name,
       amount: info.amount,
       interest_rate: info.rate,
       description: info.desc,
