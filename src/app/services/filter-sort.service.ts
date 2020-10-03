@@ -30,7 +30,10 @@ export class FilterSortService {
       const dateB = new Date(b[prop]).getTime();
       return !reverse ? dateA - dateB : dateB - dateA;
     });
-    console.log(sortedArray)
     return sortedArray;
+  }
+
+  getRecentRecords(array: any[]) {
+  return array.slice(0,5);
   }
 }

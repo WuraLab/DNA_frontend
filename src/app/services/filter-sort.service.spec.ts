@@ -1,8 +1,8 @@
-import { TestBed } from '@angular/core/testing';
+import { TestBed } from "@angular/core/testing";
 
-import { FilterSortService } from './filter-sort.service';
+import { FilterSortService } from "./filter-sort.service";
 
-describe('FilterSortService', () => {
+describe("FilterSortService", () => {
   let service: FilterSortService;
 
   beforeEach(() => {
@@ -10,7 +10,7 @@ describe('FilterSortService', () => {
     service = TestBed.inject(FilterSortService);
   });
 
-  it('should be created', () => {
+  it("should be created", () => {
     expect(service).toBeTruthy();
   });
 });

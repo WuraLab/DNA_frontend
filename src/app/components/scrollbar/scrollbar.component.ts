@@ -1,4 +1,4 @@
-import { FilterSortService } from './../../services/filter-sort.service';
+import { FilterSortService } from "./../../services/filter-sort.service";
 import { NavController } from "@ionic/angular";
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from "@angular/core";
 import { endOfToday, formatDistance, formatDistanceToNow, formatDistanceToNowStrict } from "date-fns";
@@ -22,7 +22,7 @@ export class ScrollbarComponent implements OnInit, OnChanges {
   transLoading: boolean;
   @Input() recentTrans: any;
   
-  constructor(private nav: NavController, public fs: FilterSortService) {
+  constructor(private nav: NavController) {
     this.transLoading = true;
   }
 
