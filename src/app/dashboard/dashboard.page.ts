@@ -1,3 +1,5 @@
+import { async } from "@angular/core/testing";
+import { FilterSortService } from "./../services/filter-sort.service";
 import { RecordService } from "./../services/record.service";
 import { Storage } from "@ionic/storage";
 import { Component, OnInit } from "@angular/core";
@@ -30,7 +32,8 @@ export class DashboardComponent implements OnInit {
   constructor(
     private authService: AuthenticationService,
     private storage: Storage,
-    private recordService: RecordService
+    private recordService: RecordService,
+    private fs: FilterSortService
   ) {}
 
   ngOnInit() {
@@ -40,8 +43,10 @@ export class DashboardComponent implements OnInit {
       this.storage.get("USER_INFO").then(info => {
         this.userInfo = info;
         // let sessionToken = this.userInfo.sessionToken;
-        this.recordService.getLoans().subscribe(records => {
-          this.records = records;
+        this.recordService.getLoans().subscribe(
+        records => {
+           let ordered = this.fs.orderByDate(records, "created", true)
+            this.records = this.fs.getRecentRecords(ordered);
         });
       });
     }
