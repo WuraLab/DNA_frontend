@@ -16,7 +16,7 @@ interface transaction {
   templateUrl: "./scrollbar.component.html",
   styleUrls: ["./scrollbar.component.scss"],
 })
-export class ScrollbarComponent implements OnInit {
+export class ScrollbarComponent implements OnInit, OnChanges {
   avatar = "assets/avatar/png";
   transLoading: boolean;
   @Input() recentTrans: any;

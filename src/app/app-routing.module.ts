@@ -40,8 +40,8 @@ const routes: Routes = [
     loadChildren: () => import("./create-record/create-record.module").then( m => m.CreateRecordComponentModule)
   },
   {
-    path: 'records',
-    loadChildren: () => import('./records/records.module').then( m => m.RecordsPageModule)
+    path: "records",
+    loadChildren: () => import("./records/records.module").then( m => m.RecordsComponentModule)
   },
 ];
 

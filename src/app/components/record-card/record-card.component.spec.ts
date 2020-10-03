@@ -1,9 +1,9 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { IonicModule } from '@ionic/angular';
+import { async, ComponentFixture, TestBed } from "@angular/core/testing";
+import { IonicModule } from "@ionic/angular";
 
-import { RecordCardComponent } from './record-card.component';
+import { RecordCardComponent } from "./record-card.component";
 
-describe('RecordCardComponent', () => {
+describe("RecordCardComponent", () => {
   let component: RecordCardComponent;
   let fixture: ComponentFixture<RecordCardComponent>;
 
@@ -18,7 +18,7 @@ describe('RecordCardComponent', () => {
     fixture.detectChanges();
   }));
 
-  it('should create', () => {
+  it("should create", () => {
     expect(component).toBeTruthy();
   });
 });

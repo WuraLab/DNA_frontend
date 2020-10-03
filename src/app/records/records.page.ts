@@ -6,7 +6,7 @@ import { Component, OnInit } from "@angular/core";
   templateUrl: "./records.page.html",
   styleUrls: ["./records.page.scss"],
 })
-export class RecordsPage implements OnInit {
+export class RecordsComponent implements OnInit {
   records: any;
 
   constructor(

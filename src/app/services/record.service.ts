@@ -17,7 +17,7 @@ export class RecordService {
     private storage: Storage,
     private dateService: DateServiceService
   ) {
-    this.storage.get("USER_INFO").then((info) => {
+    this.storage.get("USER_INFO").then(info => {
       this.sessionToken = info.sessionToken;
     });
   }
