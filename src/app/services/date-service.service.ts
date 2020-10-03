@@ -19,6 +19,13 @@ export class DateServiceService {
         new Date(trans.due_date),
         {addSuffix: true}
       ), 
+      loanDue: this.loanDue(trans.due_date)
     }      
+  }
+
+  loanDue(dueDate: any): boolean {
+    const now = new Date();
+    const then = new Date(dueDate.toString());
+    return now >= then;
   }
 }

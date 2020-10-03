@@ -1,12 +1,15 @@
 <ion-item button lines="inset" *ngIf="record">
   <ion-avatar slot="start">
+    <div
+      class="peep-status"
+      [ngClass]="{ 'peep-due': record.loanDue, 'peep-active': !record.loanDue }"
+    ></div>
     <img [src]="avatar" />
   </ion-avatar>
   <ion-label>
     <h2>{{ record?.name }}</h2>
     <h4>
       {{ record?.fCreateDate }}
-      <span><ion-icon slot="start" name="add"></ion-icon></span>
     </h4>
   </ion-label>
 
