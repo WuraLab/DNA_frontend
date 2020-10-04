@@ -1,0 +1,63 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons (click)="closeModal()" slot="start">
+      <ion-icon name="close"></ion-icon>
+    </ion-buttons>
+    <ion-title>Record details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div *ngIf="record; else loading">
+    <ion-row>
+      <ion-col size="8">
+        <ion-input #name value="{{record.name}}"></ion-input>
+      </ion-col>
+
+      <ion-col size="auto">
+        <ion-button danger block (click)="upadateRecord(name.value)">
+          <ion-icon name="trash"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-button danger block (click)="upadateRecord(name.value)">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="auto">
+        <ion-button danger block (click)="upadateRecord(name.value)">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <h5>Description</h5>
+    <ion-textarea #description value="{{record.description}}"></ion-textarea>
+    <ion-row>
+      <ion-col size="auto">
+        <ion-button danger block (click)="upadateRecord(name.value)">
+          <ion-icon name="checkmark-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+
+      <ion-col size="auto">
+        <ion-button danger block (click)="upadateRecord(name.value)">
+          <ion-icon name="close-circle-outline"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <h3>Status: {{ record.Due ? "Due" : "Cleared" }}</h3>
+
+    <h4>Created {{record?.fCreateDate}}</h4>
+
+    <h4>Due {{record?.fDueDate}}</h4>
+  </div>
+
+  <ng-template #loading>
+    <ion-spinner name="circles"></ion-spinner>
+  </ng-template>
+</ion-content>

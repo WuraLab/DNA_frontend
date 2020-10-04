@@ -1,0 +1,21 @@
+ion-input {
+  --color: #010644;
+  font-size: 35px;
+  --transition: background-color 15ms linear;
+  &:hover {
+    background: #bdbfc2;
+  }
+  &:focus {
+    background: #bdbfc2;
+  }
+}
+
+ion-textarea {
+  --transition: background-color 15ms linear;
+  &:hover {
+    background: #bdbfc2;
+  }
+  &:focus {
+    background: #bdbfc2;
+  }
+}

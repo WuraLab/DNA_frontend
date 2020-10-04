@@ -53,4 +53,20 @@ export class RecordService {
       },
     });
   }
+
+  // deleteRecord() {
+  //   return this.http.post(`${APIBaseUrl}/loan/`, formattedData, {
+  //     headers: {
+  //       Authorization: `token ${this.sessionToken}`,
+  //     },
+  //   });
+  // }
+
+  update(data) {
+    return this.http.post(`${APIBaseUrl}/loan/`, formattedData, {
+      headers: {
+        Authorization: `token ${this.sessionToken}`,
+      },
+    });
+  }
 }
