@@ -8,7 +8,7 @@ import { IonicModule } from "@ionic/angular";
 import { DashboardPageRoutingModule } from "./dashboard-routing.module";
 
 import { DashboardComponent } from "./dashboard.page";
-import { RecordDetailPageModule } from "../record-detail/record-detail.module";
+// import { RecordDetailPageModule } from "../record-detail/record-detail.module";
 
 @NgModule({
   imports: [

@@ -1,21 +1,59 @@
-ion-input {
-  --color: #010644;
-  font-size: 35px;
-  --transition: background-color 15ms linear;
+.info_box {
+  padding: 10px;
+  cursor: pointer;
+
   &:hover {
-    background: #bdbfc2;
-  }
-  &:focus {
-    background: #bdbfc2;
+    background: darkgray;
   }
 }
 
-ion-textarea {
-  --transition: background-color 15ms linear;
+.time_info_box {
+  padding: 10px;
+  cursor: pointer;
+
   &:hover {
-    background: #bdbfc2;
+    background: darkgray;
   }
-  &:focus {
-    background: #bdbfc2;
+}
+
+.edit_box {
+  padding: 0 10px;
+  cursor: pointer;
+
+  background: darkgray;
+}
+
+.title_box {
+  ion-text {
+    font-size: small;
+    font-weight: 600;
   }
+  padding: 10px 0;
+}
+
+.update_btns {
+  ion-button {
+    --background: #ecf0f6;
+    --color: #0a0f15;
+    --padding-bottom: 4px;
+    --padding-end: 8px;
+    --padding-start: 8px;
+    --padding-top: 4px;
+    --ripple-color: #1e1e1e;
+    --transition: background-color 15ms linear;
+  }
+}
+
+ion-input {
+  border-radius: 5px;
+}
+
+.exerpt {
+  color: rgb(107, 119, 140);
+  font-size: 15px;
+  font-weight: 300;
+}
+
+.editCreateDateArea {
+  display: none;
 }

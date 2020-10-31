@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar>
-    <ion-buttons (click)="closeModal()" slot="start">
-      <ion-icon name="close"></ion-icon>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
     </ion-buttons>
     <ion-title>Record details</ion-title>
   </ion-toolbar>
@@ -9,52 +9,249 @@
 
 <ion-content class="ion-padding">
   <div *ngIf="record; else loading">
-    <ion-row>
-      <ion-col size="8">
-        <ion-input #name value="{{record.name}}"></ion-input>
-      </ion-col>
+    <ion-grid fixed>
+      <!-- name -->
+      <ion-row>
+        <ion-col size="4">
+          <div class="title_box">
+            <ion-text color="tertiary"> Name </ion-text>
+          </div>
+        </ion-col>
+        <ion-col size="8">
+          <div
+            *ngIf="!editingName;else nameEditArea"
+            (click)="editing('name')"
+            class="info_box"
+          >
+            <ion-text> {{record.name}} </ion-text>
+          </div>
 
-      <ion-col size="auto">
-        <ion-button danger block (click)="upadateRecord(name.value)">
-          <ion-icon name="trash"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
-    <ion-row>
-      <ion-col size="auto">
-        <ion-button danger block (click)="upadateRecord(name.value)">
-          <ion-icon name="checkmark-outline"></ion-icon>
-        </ion-button>
-      </ion-col>
+          <!-- update and cancel buttons -->
+          <ng-template #nameEditArea>
+            <div class="edit_box">
+              <ion-input type="text" [formControl]="name"></ion-input>
+            </div>
 
-      <ion-col size="auto">
-        <ion-button danger block (click)="upadateRecord(name.value)">
-          <ion-icon name="close-circle-outline"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="upadateRecord('name')">
+                    <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="cancelChange('name')">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ng-template>
+        </ion-col>
+      </ion-row>
 
-    <h5>Description</h5>
-    <ion-textarea #description value="{{record.description}}"></ion-textarea>
-    <ion-row>
-      <ion-col size="auto">
-        <ion-button danger block (click)="upadateRecord(name.value)">
-          <ion-icon name="checkmark-outline"></ion-icon>
-        </ion-button>
-      </ion-col>
+      <!-- Amount -->
+      <ion-row>
+        <ion-col size="4">
+          <div class="title_box">
+            <ion-text color="tertiary"> Amount </ion-text>
+          </div>
+        </ion-col>
+        <ion-col size="8">
+          <div
+            *ngIf="!editingAmount;else amountEditArea"
+            (click)="editing('amount')"
+            class="info_box"
+          >
+            <ion-text> {{record.amount}} </ion-text>
+          </div>
 
-      <ion-col size="auto">
-        <ion-button danger block (click)="upadateRecord(name.value)">
-          <ion-icon name="close-circle-outline"></ion-icon>
-        </ion-button>
-      </ion-col>
-    </ion-row>
+          <!-- update and cancel buttons -->
+          <ng-template #amountEditArea>
+            <div class="edit_box">
+              <ion-input type="number" [formControl]="amount"></ion-input>
+            </div>
 
-    <h3>Status: {{ record.Due ? "Due" : "Cleared" }}</h3>
+            <ion-grid>
+              <ion-row>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="upadateRecord('amount')">
+                    <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="cancelChange('amount')">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ng-template>
+        </ion-col>
+      </ion-row>
 
-    <h4>Created {{record?.fCreateDate}}</h4>
+      <!-- Balance -->
+      <ion-row>
+        <ion-col size="4">
+          <div class="title_box">
+            <ion-text color="tertiary"> Balance </ion-text>
+          </div>
+        </ion-col>
+        <ion-col size="8">
+          <div class="info_box">
+            <ion-text> {{record.balance_to_pay}} </ion-text>
+          </div>
 
-    <h4>Due {{record?.fDueDate}}</h4>
+          <!-- update and cancel buttons -->
+          <!-- <ng-template #amountEditArea>
+            <div class="edit_box">
+              <ion-input type="number" [formControl]="amount"></ion-input>
+            </div>
+
+            <ion-grid>
+              <ion-row>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="upadateRecord('amount')">
+                    <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="cancelChange('amount')">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid> 
+          </ng-template> -->
+        </ion-col>
+      </ion-row>
+
+      <!-- Interest Rate -->
+      <ion-row>
+        <ion-col size="4">
+          <div class="title_box">
+            <ion-text color="tertiary"> Interest Rate </ion-text>
+          </div>
+        </ion-col>
+        <ion-col size="8">
+          <div
+            *ngIf="!editingRate;else rateEditArea"
+            (click)="editing('rate')"
+            class="info_box"
+          >
+            <ion-text> {{record.interest_rate}} </ion-text>
+          </div>
+
+          <!-- update and cancel buttons -->
+          <ng-template #rateEditArea>
+            <div class="edit_box">
+              <ion-input type="number" [formControl]="rate"></ion-input>
+            </div>
+
+            <ion-grid>
+              <ion-row>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="upadateRecord('rate')">
+                    <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="cancelChange('rate')">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+
+      <ion-row>
+        <ion-col size="4">
+          <div class="title_box">
+            <ion-text color="tertiary"> Description </ion-text>
+          </div>
+        </ion-col>
+        <ion-col size="8">
+          <div
+            *ngIf="!editingDescription;else descEditArea"
+            (click)="editing('description')"
+            class="info_box"
+          >
+            <ion-text> {{record.description}} </ion-text>
+          </div>
+
+          <!-- update and cancel buttons -->
+          <ng-template #descEditArea>
+            <div class="edit_box">
+              <ion-textarea
+                type="number"
+                [formControl]="description"
+              ></ion-textarea>
+            </div>
+
+            <ion-grid>
+              <ion-row>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="upadateRecord('description')">
+                    <ion-icon slot="icon-only" name="checkmark"></ion-icon>
+                  </ion-button>
+                </ion-col>
+                <ion-col size="auto" class="update_btns">
+                  <ion-button (click)="cancelChange('description')">
+                    <ion-icon slot="icon-only" name="close"></ion-icon>
+                  </ion-button>
+                </ion-col>
+              </ion-row>
+            </ion-grid>
+          </ng-template>
+        </ion-col>
+      </ion-row>
+      <hr />
+
+      <ion-row class="exerpt">
+        <ion-col>
+          <div>
+            <div (click)="editing('createDate')" class="time_info_box">
+              <ion-text> Due {{record.fDueDate}} </ion-text>
+            </div>
+
+            <div #editCreateDateArea class="editCreateDateArea">
+              <ion-datetime
+                [formControl]="dueDate"
+                displayFormat="MM/DD/YYYY"
+                [min]="minDate"
+                [max]="maxDate"
+                (ionCancel)="cancelChange('dueDate')"
+                (ionChange)="upadateRecord('dueDate')"
+                #createDatePicker
+              ></ion-datetime>
+            </div>
+          </div>
+          <div>
+            <div (click)="editing('createDate')" class="time_info_box">
+              <ion-text> Created {{record.fCreateDate}} </ion-text>
+            </div>
+
+            <div #editCreateDateArea class="editCreateDateArea">
+              <ion-datetime
+                [formControl]="createDate"
+                displayFormat="MM/DD/YYYY"
+                [min]="minDate"
+                [max]="maxDate"
+                (ionCancel)="cancelChange('createDate')"
+                (ionChange)="upadateRecord('createDate')"
+                #createDatePicker
+              ></ion-datetime>
+            </div>
+          </div>
+
+          <div *ngIf="record.update">
+            <ion-text> Updated {{record.fDueDate }} </ion-text>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
   </div>
 
   <ng-template #loading>

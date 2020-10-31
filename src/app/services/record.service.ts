@@ -63,10 +63,10 @@ export class RecordService {
   // }
 
   update(data) {
-    return this.http.post(`${APIBaseUrl}/loan/`, formattedData, {
-      headers: {
-        Authorization: `token ${this.sessionToken}`,
-      },
-    });
+    // return this.http.post(`${APIBaseUrl}/loan/`, formattedData, {
+    //   headers: {
+    //     Authorization: `token ${this.sessionToken}`,
+    //   },
+    // });
   }
 }
