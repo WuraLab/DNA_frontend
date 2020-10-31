@@ -233,7 +233,7 @@
               <ion-text> Created {{record.fCreateDate}} </ion-text>
             </div>
 
-            <div #editCreateDateArea>
+            <ng-template #editCreateDateArea>
               <ion-datetime
                 [formControl]="createDate"
                 displayFormat="MM/DD/YYYY"
@@ -243,7 +243,7 @@
                 (ionChange)="upadateRecord('createDate')"
                 #createDatePicker
               ></ion-datetime>
-            </div>
+            </ng-template>
           </div>
 
           <div *ngIf="record.update">
