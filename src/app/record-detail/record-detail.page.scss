@@ -1,0 +1,57 @@
+.info-box {
+	cursor: pointer;
+	padding: 10px;
+
+	&:hover {
+		background: rgb(206, 205, 205);
+	}
+}
+
+.time-info-box {
+	cursor: pointer;
+	padding: 10px;
+
+	&:hover {
+		background: rgb(206, 205, 205);
+	}
+}
+
+.edit-box {
+
+	background: rgb(206, 205, 205);
+	cursor: pointer;
+	padding: 0 10px;
+}
+
+.title-box {
+	padding: 10px 0;
+
+	ion-text {
+		font-size: small;
+		font-weight: 600;
+	}
+}
+
+.update-btns {
+	ion-button {
+		--background: #ecf0f6;
+		--color: #0a0f15;
+		--padding-bottom: 4px;
+		--padding-end: 8px;
+		--padding-start: 8px;
+		--padding-top: 4px;
+		--ripple-color: #1e1e1e;
+		--transition: background-color 15ms linear;
+	}
+}
+
+ion-input {
+	border-radius: 5px;
+}
+
+.exerpt {
+	color: rgb(107, 119, 140);
+	font-size: 15px;
+	font-weight: 300;
+}
+

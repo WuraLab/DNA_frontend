@@ -5,6 +5,7 @@ import { formatDistanceToNow } from "date-fns";
   providedIn: "root"
 })
 export class DateServiceService {
+  public rangeformat = "yyyy-MM-dd'T'HH:mm:ss.SSS";
 
   constructor() { } 
 
@@ -27,5 +28,12 @@ export class DateServiceService {
     const now = new Date();
     const then = new Date(dueDate.toString());
     return now >= then;
+  }
+
+  formatDateToDay(date : string) {
+   return formatDistanceToNow(
+      new Date(date),
+      {addSuffix: true}
+    );
   }
 }

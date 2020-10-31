@@ -43,6 +43,10 @@ const routes: Routes = [
     path: "records",
     loadChildren: () => import("./records/records.module").then( m => m.RecordsComponentModule)
   },
+  {
+    path: "record-detail",
+    loadChildren: () => import("./record-detail/record-detail.module").then( m => m.RecordDetailComponentModule)
+  },
 ];
 
 @NgModule({
