@@ -1,16 +1,34 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-buttons slot="start">
       <app-back-button></app-back-button>
     </ion-buttons>
-    <ion-title>records</ion-title>
+    <ion-title>Records</ion-title>
+
+    <ion-buttons slot="end">
+      <app-search-button></app-search-button>
+    </ion-buttons>
   </ion-toolbar>
 </ion-header>
 
 <ion-content class="ion-padding">
-  <div *ngIf="records">
+  <div *ngIf="records; else noTrans">
     <div *ngFor="let record of records">
       <app-record-card [record]="record"></app-record-card>
     </div>
   </div>
+
+  <ng-template #noTrans>
+    <div class="no-trans">
+      <h1 class="ion-text-center">You do not currently have any loan record</h1>
+      <ion-button
+        expand="block"
+        fill="clear"
+        shape="round"
+        (click)="navToCreate()"
+      >
+        Start by adding some records
+      </ion-button>
+    </div>
+  </ng-template>
 </ion-content>

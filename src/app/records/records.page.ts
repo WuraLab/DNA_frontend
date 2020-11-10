@@ -1,3 +1,4 @@
+import { NavController } from "@ionic/angular";
 import { RecordService } from "./../services/record.service";
 import { Component, OnInit } from "@angular/core";
 
@@ -10,8 +11,14 @@ export class RecordsComponent implements OnInit {
   records: any;
 
   constructor(
-    private recordService: RecordService
+    private recordService: RecordService,
+    private nav: NavController
   ) { }
+
+ 
+  navToCreate() {
+    this.nav.navigateForward("/create");
+  }
 
   ngOnInit() {
       this.recordService.getLoans().subscribe((records: any) => {

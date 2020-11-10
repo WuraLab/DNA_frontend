@@ -68,7 +68,7 @@ export class RecordDetailComponent implements OnInit {
     this.rate = new FormControl(this.record.interest_rate);  
     this.description = new FormControl(this.record.description);  
     this.createDate = new FormControl(this.record.created);  
-    this.dueDate = new FormControl(this.record.dueDate);  
+    this.dueDate = new FormControl(this.record.due_date);  
   }
 
   public closeModal() {
@@ -138,7 +138,7 @@ export class RecordDetailComponent implements OnInit {
         break;
 
       case "dueDate":
-        this.dueDate.value =  this.record.dueDate;
+        this.dueDate.value =  this.record.due_date;
         this.EditingDueDate = false
         break;
 
@@ -202,13 +202,13 @@ deleteRecord(){
         
         break;
 
-        case "dueDate":
-          this.record.dueDate = this.dueDate.value;
-          this.record.fDueDate = this.ds.formatDateToDay(this.dueDate.value);
-          this.recordService.update(this.record);
-          this.EditingDueDate = false
-          
-        break;
+      case "dueDate":
+        this.record.due_date = this.dueDate.value;
+        this.record.fDueDate = this.ds.formatDateToDay(this.dueDate.value);
+        this.recordService.update(this.record);
+        this.EditingDueDate = false
+        
+      break;
 
 
       default:

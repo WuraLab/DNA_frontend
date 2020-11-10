@@ -1,7 +1,11 @@
 <ion-header>
-  <ion-toolbar>
+  <ion-toolbar color="primary">
     <ion-title>Dashboard</ion-title>
   </ion-toolbar>
+
+  <ion-buttons slot="end">
+    <ion-menu-button menu="menuId"></ion-menu-button>
+  </ion-buttons>
 </ion-header>
 
 <ion-content class="ion-padding">
@@ -30,14 +34,20 @@
     </ion-button>
   </ion-item>
 
-  <ion-list class="ion-margin-top">
+  <ion-list class="ion-margin-top ion-margin-bottom">
     <!-- record Overview -->
     <div class="ion-margin-bottom">
       <ion-item lines="none">
         <ion-label class="cat-title">
-          <h2>Loan record view</h2>
+          <h2>Loan records</h2>
         </ion-label>
-        <ion-icon name="apps-outline" slot="end"></ion-icon>
+        <ion-icon
+          button
+          [routerLink]="['/records']"
+          name="apps-outline"
+          color="tertiary"
+          slot="end"
+        ></ion-icon>
       </ion-item>
       <div class="ion-padding" class="scroll-container record-scroll">
         <ion-item
@@ -46,7 +56,7 @@
           [routerLink]="['/create']"
           routerLinkActive="router-link-active"
         >
-          <ion-icon name="add"></ion-icon>
+          <ion-icon name="add" color="tertiary"></ion-icon>
         </ion-item>
 
         <ion-card *ngFor="let record of categories" class="scroll-card card-1">
@@ -57,26 +67,6 @@
             <p>{{record.type}}</p>
           </ion-card-content>
         </ion-card>
-      </div>
-    </div>
-
-    <!-- services -->
-    <div class="ion-margin-bottom">
-      <ion-item lines="none">
-        <ion-label class="cat-title">
-          <h2>Services</h2>
-        </ion-label>
-        <ion-icon name="apps-outline" slot="end"></ion-icon>
-      </ion-item>
-      <div class="ion-padding" class="scroll-container service-scroll">
-        <div *ngFor="let service of services" class="scroll-card">
-          <ion-card class="card-2">
-            <ion-card-content>
-              <ion-icon slot="start" [name]="service.icon"></ion-icon>
-            </ion-card-content>
-          </ion-card>
-          <p class="name">{{service.type}}</p>
-        </div>
       </div>
     </div>
   </ion-list>

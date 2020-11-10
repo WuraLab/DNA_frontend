@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar>
-    <ion-buttons slot="start">
-      <app-back-button></app-back-button>
+  <ion-toolbar color="tertiary">
+    <ion-buttons (click)="closeModal()" class="ion-padding-start" slot="start">
+      <app-close-btn></app-close-btn>
     </ion-buttons>
     <ion-title>Record details</ion-title>
   </ion-toolbar>
@@ -10,6 +10,17 @@
 <ion-content class="ion-padding">
   <div *ngIf="record; else loading">
     <ion-grid fixed>
+      <ion-row>
+        <ion-col size="12" *ngIf="record.loanDue">
+          <ion-item>
+            <ion-label>Done</ion-label>
+          </ion-item>
+
+          <ion-item>
+            <ion-label>In Progress</ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
       <!-- name -->
       <ion-row>
         <ion-col size="4">
@@ -139,7 +150,7 @@
             (click)="editing('rate')"
             class="info-box"
           >
-            <ion-text> {{record.interest-rate}} </ion-text>
+            <ion-text> {{record.interest_rate}} </ion-text>
           </div>
 
           <!-- update and cancel buttons -->
@@ -212,7 +223,11 @@
       <ion-row class="exerpt">
         <ion-col>
           <div>
-            <div (click)="editing('createDate')" *ngIf="!EditingDueDate; else editDueDateArea" class="time-info-box">
+            <div
+              (click)="editing('dueDate')"
+              *ngIf="!EditingDueDate; else editDueDateArea"
+              class="time-info-box"
+            >
               <ion-text> Due {{record.fDueDate}} </ion-text>
             </div>
 
@@ -229,7 +244,11 @@
             </ng-template>
           </div>
           <div>
-            <div (click)="editing('createDate')" *ngIf="!EditingDueDate; else editCreateDateArea" class="time-info-box">
+            <div
+              (click)="editing('createDate')"
+              *ngIf="!EditingCreateDate; else editCreateDateArea"
+              class="time-info-box"
+            >
               <ion-text> Created {{record.fCreateDate}} </ion-text>
             </div>
 
@@ -247,7 +266,7 @@
           </div>
 
           <div *ngIf="record.update">
-            <ion-text> Updated {{record.fDueDate }} </ion-text>
+            <ion-text> Updated {{record.update }} </ion-text>
           </div>
         </ion-col>
       </ion-row>
