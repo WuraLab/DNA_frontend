@@ -9,11 +9,14 @@ import { Component, OnInit } from "@angular/core";
 })
 export class RecordsComponent implements OnInit {
   records: any;
+  categories = [];
 
   constructor(
     private recordService: RecordService,
     private nav: NavController
-  ) { }
+  ) { 
+    this.categories = ["All", "Active", "Due", "Cleared" ]
+  }
 
  
   navToCreate() {

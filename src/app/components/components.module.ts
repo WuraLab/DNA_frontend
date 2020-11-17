@@ -1,3 +1,4 @@
+import { FilterComponent } from "./filter/filter.component";
 import { SearchButtonComponent } from "./search-button/search-button.component";
 import { RecordCardComponent } from "./record-card/record-card.component";
 import { BackButtonComponent } from "./back-button/back-button.component";
@@ -8,8 +9,8 @@ import { NgModule } from "@angular/core";
 import { ScrollbarComponent } from "./scrollbar/scrollbar.component";
 
 @NgModule({
-  declarations: [ScrollbarComponent, RecordCardComponent, BackButtonComponent, SearchButtonComponent],
+  declarations: [ScrollbarComponent, RecordCardComponent, BackButtonComponent, SearchButtonComponent, FilterComponent],
   imports: [CommonModule, FormsModule, IonicModule],
-  exports: [ScrollbarComponent, BackButtonComponent, RecordCardComponent, SearchButtonComponent],
+  exports: [ScrollbarComponent, BackButtonComponent, RecordCardComponent, SearchButtonComponent, FilterComponent],
 })
 export class componentsModule {}

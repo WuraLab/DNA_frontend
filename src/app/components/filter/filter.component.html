@@ -1,0 +1,35 @@
+<ion-row class="ion-justify-content-between ion-align-items-center">
+  <ion-col size="auto">
+    <ng-content></ng-content>
+  </ion-col>
+
+  <ion-col size="auto">
+    <ion-button expand="block" shape="round" (click)="onToggleFilter()">
+      <ion-icon slot="start" name="filter"></ion-icon>
+      Filters
+      <!-- <ion-badge class="ion-margin-start" slot="end" color="tertiary">1</ion-badge> -->
+    </ion-button>
+  </ion-col>
+</ion-row>
+
+<ng-container *ngIf="toggleFilter">
+  <!-- Todo: onchange of filters, update the list to match -->
+  <ion-list>
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select placeholder="Laon Type" multiple="true">
+        <ion-select-option value="bacon">Loaned</ion-select-option>
+        <ion-select-option value="olives">Borrowed</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Sort</ion-label>
+      <ion-select placeholder="Sort By" value="Name">
+        <ion-select-option value="date_sort">Date</ion-select-option>
+        <ion-select-option value="name_sort">Name</ion-select-option>
+        <ion-select-option value="amount_sort">Amount</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+</ng-container>

@@ -26,6 +26,7 @@
     "@ionic-native/status-bar": "^5.0.0",
     "@ionic/angular": "^5.0.0",
     "@ionic/storage": "^2.3.0",
+    "cordova-android": "9.0.0",
     "date-fns": "^2.16.1",
     "rxjs": "~6.5.1",
     "stylelint-config-sass-guidelines": "^7.0.0",
@@ -51,6 +52,12 @@
     "@typescript-eslint/eslint-plugin": "^3.6.0",
     "@typescript-eslint/parser": "^3.6.0",
     "codelyzer": "^5.1.2",
+    "cordova-plugin-device": "^2.0.2",
+    "cordova-plugin-ionic-keyboard": "^2.0.5",
+    "cordova-plugin-ionic-webview": "^4.0.0",
+    "cordova-plugin-splashscreen": "5.0.2",
+    "cordova-plugin-statusbar": "^2.4.2",
+    "cordova-plugin-whitelist": "^1.3.3",
     "eslint": "^7.4.0",
     "eslint-config-airbnb-base": "^14.2.0",
     "eslint-plugin-import": "^2.22.0",
@@ -68,5 +75,15 @@
     "tslint": "~6.1.0",
     "typescript": "~3.8.3"
   },
-  "description": "Debt notification App"
+  "description": "Debt notification App",
+  "cordova": {
+    "plugins": {
+      "cordova-plugin-whitelist": {},
+      "cordova-plugin-statusbar": {},
+      "cordova-plugin-device": {},
+      "cordova-plugin-splashscreen": {},
+      "cordova-plugin-ionic-webview": {},
+      "cordova-plugin-ionic-keyboard": {}
+    }
+  }
 }

@@ -12,54 +12,33 @@
 </ion-header>
 
 <ion-content class="ion-padding">
-  <ion-grid fixed>
-    <ion-row>
-      <ion-col size="auto">
-        <div class="category all">
-          <ion-text> All </ion-text>
+  <!-- <div *ngIf="records; else noTrans"> -->
+    <!-- <ion-grid fixed> -->
+      <!-- Todo: make horizontally scrollable -->
+      <div class="scroll">
+        <div class="btn" *ngFor="let category of categories" size="auto">
+           <!-- Todo: onclick of button switch the category-->
+          <ion-button
+            (click)="onClick()"
+            expand="block"
+            fill="clear"
+            shape="round"
+          >
+            {{category}}
+          </ion-button>
         </div>
-      </ion-col>
-      <ion-col size="auto">
-        <div class="category all">
-          <ion-text> Active </ion-text>
-        </div>
-      </ion-col>
+      </div>
 
-      <ion-col size="auto">
-        <div class="category all">
-          <ion-text> Due </ion-text>
-        </div>
-      </ion-col>
-
-      <ion-col size="auto">
-        <div class="category all">
-          <ion-text> Cleared </ion-text>
-        </div>
-      </ion-col>
-    </ion-row>
-
-    <ion-row class="ion-justify-content-between ion-align-items-center">
-      <ion-col size="auto">
+      <app-filter>
+        <!-- Todo: pass current category and total -->
         <ion-text> 72 Active Loans </ion-text>
-      </ion-col>
-      <ion-col size="auto">
-        <ion-button
-          (click)="onClick()"
-          expand="block"
-          shape="round"
-        >
-        <ion-icon slot="start" name="filter"></ion-icon>
-          Filter
-        </ion-button>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
+      </app-filter>
+    <!-- </ion-grid> -->
 
-  <div *ngIf="records; else noTrans">
     <div *ngFor="let record of records">
       <app-record-card [record]="record"></app-record-card>
     </div>
-  </div>
+  <!-- </div> -->
 
   <ng-template #noTrans>
     <div class="no-trans">
