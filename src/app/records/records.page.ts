@@ -12,6 +12,7 @@ export class RecordsComponent implements OnInit {
   records: any;
   categories = [];
   sortAs: string;
+  type: any;
   selectedIndex = 0;
 
   constructor(
@@ -44,7 +45,10 @@ export class RecordsComponent implements OnInit {
 
   setSortBy(sort) {
     this.sortAs = sort
-    console.log(this.sortAs)
+  }
+
+  setType(type) {
+    this.type = type
   }
 
   ngOnInit() {

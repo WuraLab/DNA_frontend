@@ -21,9 +21,12 @@ import { orderBy,sortBy } from "lodash";
 export class SortPipe implements PipeTransform {
 
   transform(records: any[],sort: string, filter: string, order: string): any[] {
+  if (sort === "" || !sort ) {
+    return records;
+  }
+
   //  sort by
-    // name
-    const sorted= () => { 
+  const sorted= () => { 
     if (sort === "name") {
     return records.sort(function (x, y) {
       let a = x["name"].toUpperCase(),

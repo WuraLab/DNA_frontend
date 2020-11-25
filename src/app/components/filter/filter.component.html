@@ -14,22 +14,32 @@
 
 <ng-container *ngIf="toggleFilter">
   <!-- Todo: onchange of filters, update the list to match -->
-  <ion-list>
+  <form [formGroup]="filterForm">
     <ion-item>
       <ion-label>Type</ion-label>
-      <ion-select placeholder="Laon Type" multiple="true">
-        <ion-select-option value="bacon">Loaned</ion-select-option>
-        <ion-select-option value="olives">Borrowed</ion-select-option>
+      <ion-select
+        formControlName="type"
+        placeholder="Laon Type"
+        multiple="true"
+        (ionChange)="typeChanged()"
+      >
+        <ion-select-option value="loaned">Loaned</ion-select-option>
+        <ion-select-option value="borrowed">Borrowed</ion-select-option>
       </ion-select>
     </ion-item>
 
     <ion-item>
       <ion-label>Sort</ion-label>
-      <ion-select placeholder="Sort By" value="name_sort">
-        <ion-select-option value="date_sort">Date</ion-select-option>
-        <ion-select-option value="name_sort">Name</ion-select-option>
-        <ion-select-option value="amount_sort">Amount</ion-select-option>
+      <ion-select
+        placeholder="Sort By"
+        formControlName="sort"
+        value="name_sort"
+        (ionChange)="sortChanged()"
+      >
+        <ion-select-option value="date">Date</ion-select-option>
+        <ion-select-option value="name">Name</ion-select-option>
+        <ion-select-option value="amount">Amount</ion-select-option>
       </ion-select>
     </ion-item>
-  </ion-list>
+  </form>
 </ng-container>
