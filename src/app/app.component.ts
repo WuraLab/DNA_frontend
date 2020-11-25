@@ -24,16 +24,17 @@ export class AppComponent implements OnInit {
 
   initializeApp() {
     this.platform.ready().then(() => {
-      this.statusBar.styleBlackOpaque();
+      // this.statusBar.show();
+      this.statusBar.backgroundColorByHexString("#1f3d5a")
       this.splashScreen.hide();
 
-      this.authenticationService.authState.subscribe(state => {
-        if (state) {
-          this.router.navigate(["dashboard"]);
-        } else {
-          this.router.navigate(["login"]);
-        }
-      });
+      // this.authenticationService.authState.subscribe(state => {
+      //   if (state) {
+      //     this.router.navigate(["dashboard"]);
+      //   } else {
+      //     this.router.navigate(["login"]);
+      //   }
+      // });
     });
   }
 

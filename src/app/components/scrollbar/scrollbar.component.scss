@@ -1,7 +1,9 @@
 .information {
 	backdrop-filter: blur(10px);
-	background-color: #fff;
-	border: 1px solid rgba(0, 0, 0, 0.05);
+	background-color: inherit;
+	border: 1px solid #0000000d;
+	height: 100%;
+	border-bottom: none;
 	border-radius: 10px 10px 0 0;
 	box-shadow: 0 -3px 5px rgba(0, 0, 0, 0.1);
 	box-sizing: border-box;

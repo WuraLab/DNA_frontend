@@ -56,9 +56,13 @@
         </p>
       </ion-text> -->
 
-      <div class="forgot-password" [routerLink]="['/forgot-password']">
-        Forgot password
-      </div>
+      <ion-row class="ion-justify-content-end">
+        <ion-col class="forgot-password" size="auto">
+          <ion-item button lines="none" [routerLink]="['/forgot-password']">
+            <ion-label> Forgot password </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
     </ion-list>
 
     <ion-button
@@ -76,7 +80,7 @@
       <hr />
     </ion-col>
     <ion-Col size="auto">
-      <span>Don’t have an Account?</span>
+      <span>Don’t have an Account ?</span>
     </ion-Col>
     <ion-Col size="3">
       <hr />

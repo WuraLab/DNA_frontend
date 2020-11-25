@@ -26,7 +26,7 @@ const routes: Routes = [
     path: "dashboard",
     loadChildren: () =>
       import("./dashboard/dashboard.module").then(m => m.DashboardPageModule),
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },   {
     path: "confirm-code",
     loadChildren: () => import("./auth/confirm-code/confirm-code.module").then( m => m.ConfirmCodePageModule)

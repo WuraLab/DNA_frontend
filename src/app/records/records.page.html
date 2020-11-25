@@ -13,31 +13,36 @@
 
 <ion-content class="ion-padding">
   <!-- <div *ngIf="records; else noTrans"> -->
-    <!-- <ion-grid fixed> -->
-      <!-- Todo: make horizontally scrollable -->
-      <div class="scroll">
-        <div class="btn" *ngFor="let category of categories" size="auto">
-           <!-- Todo: onclick of button switch the category-->
-          <ion-button
-            (click)="onClick()"
-            expand="block"
-            fill="clear"
-            shape="round"
-          >
-            {{category}}
-          </ion-button>
-        </div>
-      </div>
-
-      <app-filter>
-        <!-- Todo: pass current category and total -->
-        <ion-text> 72 Active Loans </ion-text>
-      </app-filter>
-    <!-- </ion-grid> -->
-
-    <div *ngFor="let record of records">
-      <app-record-card [record]="record"></app-record-card>
+  <!-- <ion-grid fixed> -->
+  <!-- Todo: make horizontally scrollable -->
+  <div class="scroll scrolling-wrapper">
+    <div
+      class="btn"
+      *ngFor="let category of categories; let i = index"
+      size="auto"
+    >
+      <!-- Todo: onclick of button switch the category-->
+      <ion-button
+        expand="block"
+        fill="clear"
+        shape="round"
+        [class.selected]="selectedIndex == i"
+        (click)="selectedIndex = i"
+      >
+        {{category.title}}
+      </ion-button>
     </div>
+  </div>
+
+  <!-- <app-filter (selectedSort)="setSortBy($event)"> -->
+    <!-- Todo: pass current category and total -->
+    <!-- <ion-text> 72 Active Loans </ion-text> -->
+  <!-- </app-filter> -->
+  <!-- </ion-grid> -->
+
+  <div *ngFor="let record of records | sortBy : 'amount' : 'loaned' : 'asc'">
+    <app-record-card [record]="record"></app-record-card>
+  </div>
   <!-- </div> -->
 
   <ng-template #noTrans>

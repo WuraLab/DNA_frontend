@@ -34,11 +34,10 @@ ion-button {
 }
 
 .forgot-password {
-	color: #70cdf0;
-	cursor: pointer;
-	font-size: 12px;
-	margin-top: 38px;
-	text-align: end;
+	ion-item {
+		--color: #70cdf0;
+		font-size: 14px;
+	}
 }
 
 .no-account {
