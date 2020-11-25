@@ -30,7 +30,7 @@ export class FilterComponent implements OnInit {
   }
 
   typeChanged() {
-    this.selectedSort.emit(this.filterForm.value.type);
+    this.selectedType.emit(this.filterForm.value.type);
   }
 
   sortChanged() {
