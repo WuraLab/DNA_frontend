@@ -14,6 +14,7 @@ export class RecordsComponent implements OnInit {
   sortAs: string;
   type: any;
   selectedIndex = 0;
+  order: boolean;
 
   constructor(
     private recordService: RecordService,
@@ -49,6 +50,10 @@ export class RecordsComponent implements OnInit {
 
   setType(type) {
     this.type = type
+  }
+
+  setOrder(order: boolean) {
+    this.order = order;
   }
 
   ngOnInit() {

@@ -12,12 +12,16 @@ import { PopoverController } from "@ionic/angular";
 export class FilterComponent implements OnInit {
   filterForm: FormGroup;
   toggleFilter: boolean;
+  isAsc: boolean;
+  // : boolean
+
 
   @Output() selectedSort: EventEmitter<any> = new EventEmitter();
   @Output() selectedType: EventEmitter<any> = new EventEmitter();
-
+  @Output() orderType: EventEmitter <boolean> = new EventEmitter();
   constructor( public popoverController: PopoverController, private fb: FormBuilder) { 
     this.toggleFilter = false;
+    this.isAsc = true
   }
   
   ngOnInit() {
@@ -27,6 +31,12 @@ export class FilterComponent implements OnInit {
       sort: [""],
     });
 
+    this.orderType.emit(this.isAsc);
+  }
+
+  toggleOrder() {
+    this.isAsc = !this.isAsc;
+    this.orderType.emit(this.isAsc);
   }
 
   typeChanged() {

@@ -17,7 +17,8 @@ let mockData = {
           interest_rate: "10.00",
           description: "Douglas loaned money for School fees.",
           balance_to_pay: 110000,
-          due_date: "2020-10-20"
+          due_date: "2020-10-20",
+          created: "2020-11-09"
       },
       {
         id: 2,
@@ -27,8 +28,9 @@ let mockData = {
         interest_rate: "10.00",
         description: "Douglas loaned money for School fees.",
         balance_to_pay: 110000,
-        due_date: "2020-10-20"
-    },
+        due_date: "2020-10-20",
+        created: "2020-09-09"
+      },
     {
       id: 3,
           name: "Uba Bank",
@@ -37,8 +39,9 @@ let mockData = {
       interest_rate: "10.00",
       description: "Douglas loaned money for School fees.",
       balance_to_pay: 110000,
-      due_date: "2020-10-20"
-  },
+      due_date: "2020-10-20",
+      created: "2010-11-09"
+    },
   {
     id: 4,
     name: "Mr Lapo",
@@ -47,8 +50,9 @@ let mockData = {
     interest_rate: "10.00",
     description: "Douglas loaned money for School fees.",
     balance_to_pay: 110000,
-    due_date: "2020-10-20"
-}
+    due_date: "2020-10-20",
+    created: "2030-11-09"
+  }
   ]
 }
 @Injectable({

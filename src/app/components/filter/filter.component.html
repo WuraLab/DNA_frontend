@@ -1,14 +1,24 @@
 <ion-row class="ion-justify-content-between ion-align-items-center">
-  <ion-col size="auto">
+  <ion-col class="btn-container" size="auto">
     <ng-content></ng-content>
+
+    <div shape="round" (click)="toggleOrder()">
+      <div *ngIf="isAsc; else desc">
+        <ion-icon name="caret-up"></ion-icon>
+      </div>
+
+      <ng-template #desc>
+        <ion-icon name="caret-down"></ion-icon>
+      </ng-template>
+    </div>
   </ion-col>
 
   <ion-col size="auto">
-    <ion-button expand="block" shape="round" (click)="onToggleFilter()">
-      <ion-icon slot="start" name="filter"></ion-icon>
-      Filters
-      <!-- <ion-badge class="ion-margin-start" slot="end" color="tertiary">1</ion-badge> -->
-    </ion-button>
+      <ion-button expand="block" shape="round" (click)="onToggleFilter()">
+        <ion-icon slot="start" name="filter"></ion-icon>
+        Filters
+        <!-- <ion-badge class="ion-margin-start" slot="end" color="tertiary">1</ion-badge> -->
+      </ion-button>
   </ion-col>
 </ion-row>
 

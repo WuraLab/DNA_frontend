@@ -37,13 +37,14 @@
   <app-filter
     (selectedSort)="setSortBy($event)"
     (selectedType)="setType($event)"
+    (orderType)="setOrder($event)"
   >
     <!-- Todo: pass current category and total -->
     <ion-text> 72 Active Loans </ion-text>
   </app-filter>
   <!-- </ion-grid> -->
 
-  <div *ngFor="let record of records | sortBy : sortAs : type : 'asc'">
+  <div *ngFor="let record of records | sortBy : sortAs : type : order">
     <app-record-card [record]="record"></app-record-card>
   </div>
   <!-- </div> -->

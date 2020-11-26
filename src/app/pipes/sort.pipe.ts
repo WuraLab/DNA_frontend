@@ -20,13 +20,17 @@ import { orderBy,sortBy } from "lodash";
 
 export class SortPipe implements PipeTransform {
 
-  transform(records: any[],sort: string, filter: string, order: string): any[] {
-  if (sort === "" || !sort ) {
-    return records;
-  }
-
+  transform(records: any[],sort: string, filter: string, order: boolean): any[] {
   //  sort by
-  const sorted= () => { 
+  const makeSort= () => { 
+    if (sort === "" || !sort ) {
+      return records.sort(function (x, y) {
+        let a = x["created"],
+          b = y["created"];
+       return a == b ? 0 : a > b ? 1 : -1;
+        });
+    }
+
     if (sort === "name") {
     return records.sort(function (x, y) {
       let a = x["name"].toUpperCase(),
@@ -52,8 +56,17 @@ export class SortPipe implements PipeTransform {
       });
     }
   }
+
+  let sorted = makeSort();
+  // console.log(sorted)
   
-  return sorted();
+  if ( !order) {
+  return sorted.reverse();
+  }
+
+  return sorted;
+    
+  
   // // filter
   //   // loaned
   //   records.filter(record => record.type === "loaned")
