@@ -9,6 +9,7 @@ import { RecordsComponentRoutingModule } from "./records-routing.module";
 
 import { RecordsComponent } from "./records.page";
 import { SortPipe } from "../pipes/sort.pipe";
+import { SearchComponentModule } from "../search/search.module";
 
 @NgModule({
   imports: [
@@ -17,6 +18,7 @@ import { SortPipe } from "../pipes/sort.pipe";
     IonicModule,
     RecordsComponentRoutingModule,
     componentsModule,
+    SearchComponentModule,
   ],
   declarations: [RecordsComponent, SortPipe]
 })

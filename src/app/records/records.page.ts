@@ -1,7 +1,8 @@
 import { ActivatedRoute } from "@angular/router";
-import { NavController } from "@ionic/angular";
+import { ModalController, NavController } from "@ionic/angular";
 import { RecordService } from "./../services/record.service";
 import { Component, OnInit } from "@angular/core";
+import { SearchComponent } from "../search/search.page";
 
 @Component({
   selector: "app-records",
@@ -19,7 +20,8 @@ export class RecordsComponent implements OnInit {
   constructor(
     private recordService: RecordService,
     private nav: NavController,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    public modalController: ModalController,
   ) { 
     this.categories = [
       {
@@ -54,6 +56,16 @@ export class RecordsComponent implements OnInit {
 
   setOrder(order: boolean) {
     this.order = order;
+  }
+
+  async presentSearchModal() {
+    const modal = await this.modalController.create({
+      component: SearchComponent,
+      componentProps: {
+        records: this.records
+      }
+    });
+    return await modal.present();
   }
 
   ngOnInit() {

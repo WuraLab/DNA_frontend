@@ -1,18 +1,18 @@
 .no-trans {
-  margin-top: 20%;
+	margin-top: 20%;
 }
 
 .scrolling-wrapper {
-  display: flex;
-  flex-wrap: nowrap;
-  overflow-x: auto;
+	display: flex;
+	flex-wrap: nowrap;
+	overflow-x: auto;
 
-  .btn {
-    flex: 0 0 auto;
+	.btn {
+		flex: 0 0 auto;
 
-    ion-button.selected {
-      --background: var(--ion-color-primary);
-      --color: #ffffff;
-    }
-  }
+		ion-button.selected {
+			--background: var(--ion-color-primary);
+			--color: #fff;
+		}
+	}
 }

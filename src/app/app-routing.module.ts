@@ -47,6 +47,10 @@ const routes: Routes = [
     path: "record-detail",
     loadChildren: () => import("./record-detail/record-detail.module").then( m => m.RecordDetailComponentModule)
   },
+  {
+    path: "search",
+    loadChildren: () => import("./search/search.module").then( m => m.SearchComponentModule)
+  },
 ];
 
 @NgModule({

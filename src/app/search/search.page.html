@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <!-- <ion-buttons (click)="dismiss()" class="ion-padding-start" slot="start">
+      <app-close-btn></app-close-btn>
+    </ion-buttons> -->
+    <ion-searchbar
+      placeholder="Filter Pizza"
+      inputmode="decimal"
+      type="decimal"
+      [(ngModel)]="searchTerm"
+      (ionChange)="filterRecords(searchTerm)"
+      (ionCancel)="dismiss()"
+      [debounce]="250"
+      showCancelButton="always"
+    ></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div *ngIf="searchResult.length > 0; else noresult">
+    <div *ngFor="let record of searchResult">
+      <app-record-card [record]="record"></app-record-card>
+    </div>
+  </div>
+
+  <ng-template #noresult>
+    <h1 class="ion-text-center">Ooops!, no result found for your search.</h1>
+  </ng-template>
+</ion-content>
