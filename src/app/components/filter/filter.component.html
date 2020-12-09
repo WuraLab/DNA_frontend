@@ -1,0 +1,55 @@
+<ion-row class="ion-justify-content-between ion-align-items-center">
+  <ion-col class="btn-container" size="auto">
+    <ng-content></ng-content>
+
+    <div shape="round" (click)="toggleOrder()">
+      <div *ngIf="isAsc; else desc">
+        <ion-icon name="caret-up"></ion-icon>
+      </div>
+
+      <ng-template #desc>
+        <ion-icon name="caret-down"></ion-icon>
+      </ng-template>
+    </div>
+  </ion-col>
+
+  <ion-col size="auto">
+      <ion-button expand="block" shape="round" (click)="onToggleFilter()">
+        <ion-icon slot="start" name="filter"></ion-icon>
+        Filters
+        <!-- <ion-badge class="ion-margin-start" slot="end" color="tertiary">1</ion-badge> -->
+      </ion-button>
+  </ion-col>
+</ion-row>
+
+<ng-container *ngIf="toggleFilter">
+  <!-- Todo: onchange of filters, update the list to match -->
+  <form [formGroup]="filterForm">
+    <ion-item>
+      <ion-label>Type</ion-label>
+      <ion-select
+        formControlName="type"
+        placeholder="Laon Type"
+        multiple="true"
+        (ionChange)="typeChanged()"
+      >
+        <ion-select-option value="loaned">Loaned</ion-select-option>
+        <ion-select-option value="borrowed">Borrowed</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Sort</ion-label>
+      <ion-select
+        placeholder="Sort By"
+        formControlName="sort"
+        value="date"
+        (ionChange)="sortChanged()"
+      >
+        <ion-select-option value="date">Date</ion-select-option>
+        <ion-select-option value="name">Name</ion-select-option>
+        <ion-select-option value="amount">Amount</ion-select-option>
+      </ion-select>
+    </ion-item>
+  </form>
+</ng-container>

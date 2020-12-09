@@ -8,6 +8,8 @@ import { IonicModule } from "@ionic/angular";
 import { RecordsComponentRoutingModule } from "./records-routing.module";
 
 import { RecordsComponent } from "./records.page";
+import { SortPipe } from "../pipes/sort.pipe";
+import { SearchComponentModule } from "../search/search.module";
 
 @NgModule({
   imports: [
@@ -16,7 +18,8 @@ import { RecordsComponent } from "./records.page";
     IonicModule,
     RecordsComponentRoutingModule,
     componentsModule,
+    SearchComponentModule,
   ],
-  declarations: [RecordsComponent]
+  declarations: [RecordsComponent, SortPipe]
 })
 export class RecordsComponentModule {}

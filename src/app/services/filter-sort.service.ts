@@ -36,4 +36,13 @@ export class FilterSortService {
   getRecentRecords(array: any[]) {
   return array.slice(0,5);
   }
+
+  filterItems(array: any[], searchTerm: string) {
+    return array.filter(record => {
+      let data = record.name.toLowerCase();
+      let term = searchTerm.toLowerCase();
+
+      return data.indexOf(term.toLowerCase()) > -1;
+    });
+  }
 }

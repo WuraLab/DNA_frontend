@@ -26,7 +26,7 @@ const routes: Routes = [
     path: "dashboard",
     loadChildren: () =>
       import("./dashboard/dashboard.module").then(m => m.DashboardPageModule),
-    canActivate: [AuthGuardService],
+    // canActivate: [AuthGuardService],
   },   {
     path: "confirm-code",
     loadChildren: () => import("./auth/confirm-code/confirm-code.module").then( m => m.ConfirmCodePageModule)
@@ -46,6 +46,10 @@ const routes: Routes = [
   {
     path: "record-detail",
     loadChildren: () => import("./record-detail/record-detail.module").then( m => m.RecordDetailComponentModule)
+  },
+  {
+    path: "search",
+    loadChildren: () => import("./search/search.module").then( m => m.SearchComponentModule)
   },
 ];
 

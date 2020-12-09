@@ -1,6 +1,7 @@
+import { StatusBar } from '@ionic-native/status-bar/ngx';
 import { Component, OnInit } from "@angular/core";
 import { FormGroup, FormBuilder, Validators } from "@angular/forms";
-import { NavController } from "@ionic/angular";
+import { NavController, Platform } from "@ionic/angular";
 import { AuthenticationService } from "../authentication.service";
 import { Router } from "@angular/router";
 
@@ -15,10 +16,21 @@ export class SignupComponent implements OnInit {
 
   constructor(
     private fb: FormBuilder,
+    private platform: Platform,
+    private statusBar: StatusBar,
     private navCtrl: NavController,
     private auth: AuthenticationService,
     private router: Router
-  ) {}
+  ) {
+    this.initializeApp;
+  }
+
+  initializeApp() {
+    this.platform.ready().then(() => {
+      // this.statusBar.show();
+      this.statusBar.hide()
+    });
+  }
 
   ngOnInit() {
     // eslint-disable-next-line max-len

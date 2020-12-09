@@ -2,6 +2,19 @@ hr {
 	background: #eee0e0;
 }
 
+ion-input {
+	// --background: #3880ff;
+	// --color: #ffffff;
+	// --padding-bottom: 4px;
+	// --padding-end: 4px;
+	// --padding-start: 4px;
+	// --padding-top: 4px;
+	// --placeholder-color: #3880ff;
+	// --placeholder-font-style: initial;
+	// --placeholder-font-weight initial;
+	// --placeholder-opacity: 0.5;
+}
+
 .welcome-text {
 	color: #fff;
 	font-size: 40px;
@@ -21,11 +34,10 @@ ion-button {
 }
 
 .forgot-password {
-	color: #70cdf0;
-	cursor: pointer;
-	font-size: 12px;
-	margin-top: 38px;
-	text-align: end;
+	ion-item {
+		--color: #70cdf0;
+		font-size: 14px;
+	}
 }
 
 .no-account {
@@ -50,6 +62,7 @@ form {
 
 ion-content {
 	--background: linear-gradient(180deg, #032647 30.21%, #384d61 87.72%);
+	--padding-top: 20%;
 }
 
 ion-button.signin-btn {

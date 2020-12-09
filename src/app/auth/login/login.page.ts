@@ -52,30 +52,33 @@ export class LoginComponent implements OnInit {
   }
 
   login() {
-    this.errors = "";
-    this.auth.authState.subscribe(state => console.log(state));
+  //   this.errors = "";
+  //   this.auth.authState.subscribe(state => console.log(state));
 
-    this.auth.login(this.loginForm.value).subscribe(
-      token => {
-        console.log(token);
+  //   this.auth.login(this.loginForm.value).subscribe(
+  //     token => {
+  //       console.log(token);
 
-        // gets the user using the returned token
-        this.auth.getUser(token).subscribe(data => {
-          data.sessionToken = token;
-          console.log(data);
-          this.storage.set("USER_INFO", data);
-          this.auth.authState.next(true);
-          this.router.navigate(["/dashboard"], {
-            queryParams: { loggedin: "success" },
-          });
-        });
-      },
-      errorResponse => {
-        console.log(errorResponse);
-        if (errorResponse.status === 400) {
-          this.errors = "Username or password is incorrect";
-        } else this.errors = errorResponse.message;
-      }
-    );
+  //       // gets the user using the returned token
+  //       this.auth.getUser(token).subscribe(data => {
+  //         data.sessionToken = token;
+  //         console.log(data);
+  //         this.storage.set("USER_INFO", data);
+  //         this.auth.authState.next(true);
+  //         this.router.navigate(["/dashboard"], {
+  //           queryParams: { loggedin: "success" },
+  //         });
+  //       });
+  //     },
+  //     errorResponse => {
+  //       console.log(errorResponse);
+  //       if (errorResponse.status === 400) {
+  //         this.errors = "Username or password is incorrect";
+  //       } else this.errors = errorResponse.message;
+  //     }
+  //   );
+  this.router.navigate(["/dashboard"], {
+    queryParams: { loggedin: "success" },
+  });
   }
 }

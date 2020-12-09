@@ -1,4 +1,4 @@
-<ion-content fullscreen class="ion-padding">
+<ion-content class="ion-padding">
   <ion-text>
     <h1 class="welcome-text">Welcome <br />Back</h1>
   </ion-text>
@@ -56,26 +56,31 @@
         </p>
       </ion-text> -->
 
-      <div class="forgot-password" [routerLink]="['/forgot-password']">
-        Forgot password
-      </div>
+      <ion-row class="ion-justify-content-end">
+        <ion-col class="forgot-password" size="auto">
+          <ion-item button lines="none" [routerLink]="['/forgot-password']">
+            <ion-label> Forgot password </ion-label>
+          </ion-item>
+        </ion-col>
+      </ion-row>
     </ion-list>
 
     <ion-button
       type="submit"
       class="ion-text-capitalize signin-btn"
       expand="block"
+      color="secondary"
       [disabled]="loginForm.invalid"
       >Sign In</ion-button
     >
   </form>
 
-  <ion-row class="ion-ajustify-content-center option-text">
+  <ion-row class="ion-justify-content-center option-text">
     <ion-col size="3">
       <hr />
     </ion-col>
     <ion-Col size="auto">
-      <span>Don’t have an Account?</span>
+      <span>Don’t have an Account ?</span>
     </ion-Col>
     <ion-Col size="3">
       <hr />

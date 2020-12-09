@@ -20,13 +20,6 @@ ion-button {
 	color: #585eed;
 }
 
-.forgot-password {
-	color: #70cdf0;
-	font-size: 12px;
-	margin-top: 38px;
-	text-align: end;
-}
-
 .no-account {
 	margin: 21px 0;
 	text-align: center;
@@ -49,6 +42,7 @@ form {
 
 ion-content {
 	--background: linear-gradient(180deg, #032647 30.21%, #384d61 87.72%);
+	--padding-top: 20%;
 }
 
 ion-button.signin-btn {
